@@ -6,3 +6,4 @@
 #import <ParseCrashReporting/ParseCrashReporting.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "SWRevealViewController.h"

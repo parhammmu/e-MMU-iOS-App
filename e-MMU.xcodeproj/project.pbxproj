@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		D06EE81C1A49A6E700E56AEF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06EE81B1A49A6E700E56AEF /* FacebookSDK.framework */; };
 		D06EE81E1A49AA1700E56AEF /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D06EE81D1A49AA1700E56AEF /* libstdc++.6.dylib */; };
+		D079C96E1A49B56E0070FDEB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D079C96D1A49B56E0070FDEB /* SWRevealViewController.m */; };
+		D079C9711A49B6FE0070FDEB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079C9701A49B6FE0070FDEB /* MenuViewController.swift */; };
+		D079C9731A49B9BA0070FDEB /* LatestNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079C9721A49B9BA0070FDEB /* LatestNewsViewController.swift */; };
+		D079C9751A49C9400070FDEB /* LatestEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079C9741A49C9400070FDEB /* LatestEventsViewController.swift */; };
 		D09043CE1A484D2E0092433D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09043CD1A484D2E0092433D /* AppDelegate.swift */; };
-		D09043D01A484D2E0092433D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09043CF1A484D2E0092433D /* ViewController.swift */; };
 		D09043D31A484D2E0092433D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09043D11A484D2E0092433D /* Main.storyboard */; };
 		D09043D51A484D2E0092433D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09043D41A484D2E0092433D /* Images.xcassets */; };
 		D09043D81A484D2E0092433D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09043D61A484D2E0092433D /* LaunchScreen.xib */; };
@@ -46,10 +49,14 @@
 /* Begin PBXFileReference section */
 		D06EE81B1A49A6E700E56AEF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D06EE81D1A49AA1700E56AEF /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		D079C96C1A49B56E0070FDEB /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		D079C96D1A49B56E0070FDEB /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		D079C9701A49B6FE0070FDEB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		D079C9721A49B9BA0070FDEB /* LatestNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestNewsViewController.swift; sourceTree = "<group>"; };
+		D079C9741A49C9400070FDEB /* LatestEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestEventsViewController.swift; sourceTree = "<group>"; };
 		D09043C81A484D2E0092433D /* e-MMU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-MMU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09043CC1A484D2E0092433D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09043CD1A484D2E0092433D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D09043CF1A484D2E0092433D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D09043D21A484D2E0092433D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D09043D41A484D2E0092433D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D09043D71A484D2E0092433D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -111,6 +118,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D079C96B1A49B56E0070FDEB /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D079C96C1A49B56E0070FDEB /* SWRevealViewController.h */,
+				D079C96D1A49B56E0070FDEB /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		D079C96F1A49B6C90070FDEB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D079C9701A49B6FE0070FDEB /* MenuViewController.swift */,
+				D079C9721A49B9BA0070FDEB /* LatestNewsViewController.swift */,
+				D079C9741A49C9400070FDEB /* LatestEventsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D079C9761A49C9AE0070FDEB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D09043CD1A484D2E0092433D /* AppDelegate.swift */,
+				D09043D11A484D2E0092433D /* Main.storyboard */,
+				D09043D61A484D2E0092433D /* LaunchScreen.xib */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		D079C9771A49C9E90070FDEB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D09043BF1A484D2E0092433D = {
 			isa = PBXGroup;
 			children = (
@@ -133,12 +176,11 @@
 		D09043CA1A484D2E0092433D /* e-MMU */ = {
 			isa = PBXGroup;
 			children = (
+				D079C9761A49C9AE0070FDEB /* Main */,
 				D090440C1A484ED10092433D /* Vendor */,
-				D09043CD1A484D2E0092433D /* AppDelegate.swift */,
-				D09043CF1A484D2E0092433D /* ViewController.swift */,
-				D09043D11A484D2E0092433D /* Main.storyboard */,
+				D079C9771A49C9E90070FDEB /* Views */,
+				D079C96F1A49B6C90070FDEB /* ViewControllers */,
 				D09043D41A484D2E0092433D /* Images.xcassets */,
-				D09043D61A484D2E0092433D /* LaunchScreen.xib */,
 				D09043CB1A484D2E0092433D /* Supporting Files */,
 			);
 			path = "e-MMU";
@@ -197,6 +239,7 @@
 		D090440C1A484ED10092433D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				D079C96B1A49B56E0070FDEB /* SWRevealViewController */,
 				D090440D1A484F1D0092433D /* HUD */,
 			);
 			name = Vendor;
@@ -328,9 +371,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D09043D01A484D2E0092433D /* ViewController.swift in Sources */,
+				D079C9711A49B6FE0070FDEB /* MenuViewController.swift in Sources */,
+				D079C9731A49B9BA0070FDEB /* LatestNewsViewController.swift in Sources */,
 				D09044111A484F330092433D /* MBProgressHUD.m in Sources */,
 				D09043CE1A484D2E0092433D /* AppDelegate.swift in Sources */,
+				D079C9751A49C9400070FDEB /* LatestEventsViewController.swift in Sources */,
+				D079C96E1A49B56E0070FDEB /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
