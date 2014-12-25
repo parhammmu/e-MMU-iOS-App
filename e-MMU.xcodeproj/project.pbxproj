@@ -34,6 +34,15 @@
 		D09044091A484E1A0092433D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D09044081A484E1A0092433D /* libz.dylib */; };
 		D090440B1A484E240092433D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D090440A1A484E240092433D /* libsqlite3.dylib */; };
 		D09044111A484F330092433D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D09044101A484F330092433D /* MBProgressHUD.m */; };
+		D0DFB4121A4C73FF00F54550 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DFB4111A4C73FF00F54550 /* AppConstant.swift */; };
+		D0DFB4141A4C770300F54550 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DFB4131A4C770300F54550 /* AppUtility.swift */; };
+		D0DFB4161A4C82DA00F54550 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0DFB4151A4C82DA00F54550 /* Roboto-Bold.ttf */; };
+		D0DFB4181A4C82E900F54550 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0DFB4171A4C82E900F54550 /* OpenSans-Regular.ttf */; };
+		D0DFB41A1A4C895700F54550 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DFB4191A4C895700F54550 /* ProfileImageView.swift */; };
+		D0DFB4201A4C93D600F54550 /* FindFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DFB41F1A4C93D600F54550 /* FindFriendsViewController.swift */; };
+		D0DFB4221A4C93E200F54550 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DFB4211A4C93E200F54550 /* MessagesViewController.swift */; };
+		D0DFB4241A4C943900F54550 /* ClassRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DFB4231A4C943900F54550 /* ClassRegistrationViewController.swift */; };
+		D0DFB4261A4C945100F54550 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DFB4251A4C945100F54550 /* MyAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +90,15 @@
 		D090440E1A484F320092433D /* e-MMU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "e-MMU-Bridging-Header.h"; sourceTree = "<group>"; };
 		D090440F1A484F330092433D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D09044101A484F330092433D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D0DFB4111A4C73FF00F54550 /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		D0DFB4131A4C770300F54550 /* AppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		D0DFB4151A4C82DA00F54550 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		D0DFB4171A4C82E900F54550 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		D0DFB4191A4C895700F54550 /* ProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		D0DFB41F1A4C93D600F54550 /* FindFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindFriendsViewController.swift; sourceTree = "<group>"; };
+		D0DFB4211A4C93E200F54550 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		D0DFB4231A4C943900F54550 /* ClassRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRegistrationViewController.swift; sourceTree = "<group>"; };
+		D0DFB4251A4C945100F54550 /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +151,10 @@
 				D079C9701A49B6FE0070FDEB /* MenuViewController.swift */,
 				D079C9721A49B9BA0070FDEB /* LatestNewsViewController.swift */,
 				D079C9741A49C9400070FDEB /* LatestEventsViewController.swift */,
+				D0DFB41F1A4C93D600F54550 /* FindFriendsViewController.swift */,
+				D0DFB4211A4C93E200F54550 /* MessagesViewController.swift */,
+				D0DFB4231A4C943900F54550 /* ClassRegistrationViewController.swift */,
+				D0DFB4251A4C945100F54550 /* MyAccountViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -143,6 +165,8 @@
 				D09043CD1A484D2E0092433D /* AppDelegate.swift */,
 				D09043D11A484D2E0092433D /* Main.storyboard */,
 				D09043D61A484D2E0092433D /* LaunchScreen.xib */,
+				D0DFB4111A4C73FF00F54550 /* AppConstant.swift */,
+				D0DFB4131A4C770300F54550 /* AppUtility.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -150,6 +174,7 @@
 		D079C9771A49C9E90070FDEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D0DFB4191A4C895700F54550 /* ProfileImageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -189,6 +214,8 @@
 		D09043CB1A484D2E0092433D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D0DFB4171A4C82E900F54550 /* OpenSans-Regular.ttf */,
+				D0DFB4151A4C82DA00F54550 /* Roboto-Bold.ttf */,
 				D090440E1A484F320092433D /* e-MMU-Bridging-Header.h */,
 				D09043CC1A484D2E0092433D /* Info.plist */,
 			);
@@ -335,8 +362,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DFB4181A4C82E900F54550 /* OpenSans-Regular.ttf in Resources */,
 				D09043D31A484D2E0092433D /* Main.storyboard in Resources */,
 				D09043D81A484D2E0092433D /* LaunchScreen.xib in Resources */,
+				D0DFB4161A4C82DA00F54550 /* Roboto-Bold.ttf in Resources */,
 				D09043D51A484D2E0092433D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,11 +400,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DFB4241A4C943900F54550 /* ClassRegistrationViewController.swift in Sources */,
+				D0DFB4141A4C770300F54550 /* AppUtility.swift in Sources */,
 				D079C9711A49B6FE0070FDEB /* MenuViewController.swift in Sources */,
+				D0DFB4261A4C945100F54550 /* MyAccountViewController.swift in Sources */,
 				D079C9731A49B9BA0070FDEB /* LatestNewsViewController.swift in Sources */,
+				D0DFB4121A4C73FF00F54550 /* AppConstant.swift in Sources */,
 				D09044111A484F330092433D /* MBProgressHUD.m in Sources */,
+				D0DFB4201A4C93D600F54550 /* FindFriendsViewController.swift in Sources */,
 				D09043CE1A484D2E0092433D /* AppDelegate.swift in Sources */,
+				D0DFB41A1A4C895700F54550 /* ProfileImageView.swift in Sources */,
 				D079C9751A49C9400070FDEB /* LatestEventsViewController.swift in Sources */,
+				D0DFB4221A4C93E200F54550 /* MessagesViewController.swift in Sources */,
 				D079C96E1A49B56E0070FDEB /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

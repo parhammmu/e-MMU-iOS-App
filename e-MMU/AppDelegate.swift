@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ParseCrashReporting.enable()
         Parse.setApplicationId("oBYGdBE3UxlDD5eoGOoLT8SzXsk9wa3sinAtyCPK", clientKey: "pK14x4Xl4jSsRrHsYWKldF7BlS1inVo02yyv1yiW")
         //Parse.enableLocalDatastore()
+        
+        self.customSetup()
     
         return true
     }
@@ -50,6 +52,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication, withSession: PFFacebookUtils.session())
+    }
+    
+    func customSetup() {
+        UINavigationBar.appearance().backgroundColor = NAVIGATION_COLOUR
+        UINavigationBar.appearance().tintColor = NAVIGATION_TINT_COLOUR
+        UITableViewCell.appearance().backgroundColor = BG_COLOUR
+        UITableView.appearance().backgroundColor = BG_COLOUR
+        UILabel.appearance().textColor = BODY_FONT_COLOUR
+        UIButton.appearance().backgroundColor = BUTTON_COLOUR
+        UIButton.appearance().titleLabel?.textColor = UIColor.whiteColor()
     }
 
 
