@@ -4,6 +4,62 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="Kod-J2-1EN">
+            <objects>
+                <viewController id="ehP-fV-xNV" customClass="LoginViewController" customModule="e_MMU" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rPD-EN-eC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="2eE-dz-sap"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ynX-eT-b5b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business" translatesAutoresizingMaskIntoConstraints="NO" id="bvV-fj-leR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6j-Ff-hGe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uXc-jb-whj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fw-zZ-fAv">
+                                            <rect key="frame" x="200" y="281" width="200" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="16d-Mu-UkW"/>
+                                                <constraint firstAttribute="height" constant="37" id="oz0-Vg-Iln"/>
+                                            </constraints>
+                                            <state key="normal" image="fb-login">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="1Fw-zZ-fAv" secondAttribute="centerY" id="6fG-1K-d48"/>
+                                        <constraint firstAttribute="centerX" secondItem="1Fw-zZ-fAv" secondAttribute="centerX" id="jbq-pq-q3R"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="2eE-dz-sap" firstAttribute="top" secondItem="y6j-Ff-hGe" secondAttribute="bottom" id="3Ns-if-cnr"/>
+                            <constraint firstAttribute="trailing" secondItem="y6j-Ff-hGe" secondAttribute="trailing" id="3pP-AV-hPI"/>
+                            <constraint firstItem="bvV-fj-leR" firstAttribute="leading" secondItem="ynX-eT-b5b" secondAttribute="leading" id="8ay-mM-JMy"/>
+                            <constraint firstItem="y6j-Ff-hGe" firstAttribute="top" secondItem="ynX-eT-b5b" secondAttribute="top" id="AZE-J3-9qn"/>
+                            <constraint firstItem="bvV-fj-leR" firstAttribute="top" secondItem="ynX-eT-b5b" secondAttribute="top" id="Dsq-yj-xP3"/>
+                            <constraint firstItem="y6j-Ff-hGe" firstAttribute="leading" secondItem="ynX-eT-b5b" secondAttribute="leading" id="E0S-rI-Wep"/>
+                            <constraint firstItem="2eE-dz-sap" firstAttribute="top" secondItem="bvV-fj-leR" secondAttribute="bottom" id="qNg-KO-y5K"/>
+                            <constraint firstAttribute="trailing" secondItem="bvV-fj-leR" secondAttribute="trailing" id="wEu-Wj-d1A"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkb-hV-ppe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4044" y="-1439"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="AQn-dw-KRP">
             <objects>
@@ -126,7 +182,13 @@
                             <outlet property="delegate" destination="8uG-nA-JmM" id="VbL-bA-S5B"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gQt-Hg-ODc"/>
+                    <navigationItem key="navigationItem" id="gQt-Hg-ODc">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="x4N-US-McP"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="x4N-US-McP" id="Uhl-fT-WLL"/>
+                        <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="a9j-BL-bo6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="unS-Wq-3H8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,6 +220,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="qbg-XX-5mi" id="pwg-k3-cUH"/>
+                        <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="ooS-mA-afM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XoY-Ug-4jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,7 +248,13 @@
                             <outlet property="delegate" destination="ZxG-Nx-ZmB" id="ojE-8k-af3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NBK-lR-1io"/>
+                    <navigationItem key="navigationItem" id="NBK-lR-1io">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="m8H-aZ-c1m"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="m8H-aZ-c1m" id="gG7-Tj-Yuv"/>
+                        <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="SB4-9w-HMi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i19-Ad-3yW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,7 +299,13 @@
                             <outlet property="delegate" destination="fCm-kJ-l9j" id="US1-IS-kAk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="PtH-0g-gtR"/>
+                    <navigationItem key="navigationItem" id="PtH-0g-gtR">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="pmO-Dz-m09"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="pmO-Dz-m09" id="EGF-xp-yvt"/>
+                        <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="iNZ-2h-WuZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5G5-QY-Nns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -267,7 +342,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LCG-Aw-wkx"/>
+                    <navigationItem key="navigationItem" id="LCG-Aw-wkx">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="0Ne-Fc-Hhz"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="0Ne-Fc-Hhz" id="5Ex-Uw-jpX"/>
+                        <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="lia-RH-8qy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2RK-y6-FEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -312,7 +393,13 @@
                             <outlet property="delegate" destination="6as-hq-QVy" id="2v6-ck-3qR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="AYV-pB-Ox8"/>
+                    <navigationItem key="navigationItem" id="AYV-pB-Ox8">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Uz5-zO-Axb"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="Uz5-zO-Axb" id="Uf3-Nd-brl"/>
+                        <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="sHn-mf-Exe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ct-fv-QcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,7 +442,12 @@
             <point key="canvasLocation" x="1764" y="-3051"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="business" width="405" height="273"/>
+        <image name="fb-login" width="201" height="37"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7O8-wu-Hp5"/>
+        <segue reference="xiX-19-dJi"/>
+        <segue reference="sHn-mf-Exe"/>
     </inferredMetricsTieBreakers>
 </document>

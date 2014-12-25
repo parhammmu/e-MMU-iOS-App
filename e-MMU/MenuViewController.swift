@@ -88,19 +88,19 @@ class MenuViewController: UITableViewController {
         case 2:
             
             if indexPath.row == 0 {
-                //menuText?.text = "FIND FRIENDS"
+                self.performSegueWithIdentifier("FindFriends", sender: self)
             } else {
-                //menuText?.text = "MESSAGES"
+                self.performSegueWithIdentifier("Messages", sender: self)
             }
             
         case 3:
             
-            self.performSegueWithIdentifier("MMUNews", sender: self)
+            self.performSegueWithIdentifier("ClassRegistration", sender: self)
             
         case 4:
             
             if indexPath.row == 0 {
-                //menuText?.text = "MY ACCOUNT"
+                self.performSegueWithIdentifier("MyAccount", sender: self)
             } else {
                 //menuText?.text = "SIGN OUT"
             }

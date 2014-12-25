@@ -11,32 +11,30 @@ import UIKit
 class LatestNewsViewController: UITableViewController {
 
     @IBOutlet var menuButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        customSetup()
+        
+        AppUtility.MenuNavigationSetup(self.menuButton, viewController: self, navigationController: navigationController)
 
     }
 
     // MARK: - Helper methods
     
-    func customSetup() {
-        let revealViewController = self.revealViewController()
-        self.menuButton.target = self.revealViewController()
-        self.menuButton.action = "revealToggle:"
-        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        AppUtility.checkUser(self)
     }
+    
     
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return 0
     }
