@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "_default": {
+            "link": "e-MMU"
+        }, 
+        "e-MMU": {
+            "applicationId": "oBYGdBE3UxlDD5eoGOoLT8SzXsk9wa3sinAtyCPK", 
+            "masterKey": "IEHliWJB8PYFIZd2cuKhXOx656y8oULk43sYjpSx"
+        }
+    }
+}
