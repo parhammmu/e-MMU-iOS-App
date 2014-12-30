@@ -34,6 +34,9 @@
                                             <state key="normal" image="fb-login">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="loginTapped:" destination="ehP-fV-xNV" eventType="touchUpInside" id="LuL-EP-zgt"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -55,10 +58,55 @@
                             <constraint firstAttribute="trailing" secondItem="bvV-fj-leR" secondAttribute="trailing" id="wEu-Wj-d1A"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="Qr4-1l-XES" kind="presentation" identifier="Faculty" modalTransitionStyle="flipHorizontal" id="wQG-zT-ZcJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qkb-hV-ppe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4044" y="-1439"/>
+        </scene>
+        <!--Faculty View Controller-->
+        <scene sceneID="vPS-wa-AwZ">
+            <objects>
+                <viewController storyboardIdentifier="Faculty" id="Qr4-1l-XES" customClass="FacultyViewController" customModule="e_MMU" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5wY-g3-L94"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sj9-yc-MK7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BeY-Sf-fi5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="business" translatesAutoresizingMaskIntoConstraints="NO" id="KrJ-qe-Qf9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d1G-bX-GWv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0QT-qr-eep">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlL-qf-C6B">
+                                            <rect key="frame" x="277" y="550" width="62" height="30"/>
+                                            <state key="normal" title="Continue">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="continueTapped:" destination="Qr4-1l-XES" eventType="touchUpInside" id="Bne-DP-Lfd"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wm4-0Q-8HD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4702" y="-1439"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="AQn-dw-KRP">
@@ -197,7 +245,7 @@
         <!--Latest News View Controller-->
         <scene sceneID="qs5-Sq-Fjl">
             <objects>
-                <tableViewController id="H0K-Gu-CcU" customClass="LatestNewsViewController" customModule="e_MMU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LatestNews" id="H0K-Gu-CcU" customClass="LatestNewsViewController" customModule="e_MMU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Y25-j2-uac">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -447,7 +495,7 @@
         <image name="fb-login" width="201" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ooS-mA-afM"/>
         <segue reference="xiX-19-dJi"/>
-        <segue reference="sHn-mf-Exe"/>
     </inferredMetricsTieBreakers>
 </document>

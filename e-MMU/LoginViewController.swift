@@ -8,12 +8,31 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, FacultyChoosen {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
+    // Mark : Faculty Protocol methods
+    
+    func facultyDismissed() {
+        
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
 
+    @IBAction func loginTapped(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("Faculty", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Faculty" {
+            let fvc = segue.destinationViewController as FacultyViewController
+            fvc.delegate = self;
+        }
+    }
 
 }
