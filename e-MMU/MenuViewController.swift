@@ -130,7 +130,11 @@ class MenuViewController: UITableViewController {
                 let firstName = self.currentUser["firstName"] as? String
                 let lastName = self.currentUser["lastName"] as? String
                 
-                name?.text = firstName! + " " + lastName!
+                if let firstName = self.currentUser["firstName"] as? String {
+                    if let lastName = self.currentUser["lastName"] as? String {
+                        name?.text = firstName + " " + lastName
+                    }
+                }
                 
                 let images = self.currentUser["pictures"] as? [PFFile]
                 

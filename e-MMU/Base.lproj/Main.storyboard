@@ -413,7 +413,7 @@
             </objects>
             <point key="canvasLocation" x="1764" y="-947"/>
         </scene>
-        <!--Class Registration View Controller-->
+        <!--Class Registration-->
         <scene sceneID="SSc-GG-Ahe">
             <objects>
                 <viewController id="3DJ-68-RbM" customClass="ClassRegistrationViewController" customModule="e_MMU" customModuleProvider="target" sceneMemberID="viewController">
@@ -424,13 +424,46 @@
                     <view key="view" contentMode="scaleToFill" id="8HJ-vr-Nl3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business" translatesAutoresizingMaskIntoConstraints="NO" id="f4J-7w-sTa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bh7-i8-tKL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Phu-MP-bsa">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j3H-7Z-JJN">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="97I-Vl-DcB"/>
+                                    <constraint firstAttribute="height" constant="300" id="lkE-DP-a8W"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bh7-i8-tKL" secondAttribute="trailing" id="AwZ-OY-wc7"/>
+                            <constraint firstAttribute="trailing" secondItem="f4J-7w-sTa" secondAttribute="trailing" id="BUg-uS-77K"/>
+                            <constraint firstItem="f4J-7w-sTa" firstAttribute="leading" secondItem="8HJ-vr-Nl3" secondAttribute="leading" id="GwA-Km-7Pc"/>
+                            <constraint firstItem="f4J-7w-sTa" firstAttribute="top" secondItem="8HJ-vr-Nl3" secondAttribute="top" id="HSV-sE-WFM"/>
+                            <constraint firstItem="bvU-8x-qsC" firstAttribute="top" secondItem="f4J-7w-sTa" secondAttribute="bottom" id="I9h-P8-CAE"/>
+                            <constraint firstItem="bh7-i8-tKL" firstAttribute="top" secondItem="8HJ-vr-Nl3" secondAttribute="top" id="OQl-gU-tql"/>
+                            <constraint firstAttribute="centerY" secondItem="j3H-7Z-JJN" secondAttribute="centerY" id="fvj-cK-ixg"/>
+                            <constraint firstItem="bh7-i8-tKL" firstAttribute="leading" secondItem="8HJ-vr-Nl3" secondAttribute="leading" id="h6e-bb-IO5"/>
+                            <constraint firstAttribute="centerX" secondItem="j3H-7Z-JJN" secondAttribute="centerX" id="pgO-dv-ZRi"/>
+                            <constraint firstItem="bvU-8x-qsC" firstAttribute="top" secondItem="bh7-i8-tKL" secondAttribute="bottom" id="rlS-QQ-8X5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LCG-Aw-wkx">
+                    <navigationItem key="navigationItem" title="Class Registration" id="LCG-Aw-wkx">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="0Ne-Fc-Hhz"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="0Ne-Fc-Hhz" id="5Ex-Uw-jpX"/>
+                        <outlet property="qrImageView" destination="j3H-7Z-JJN" id="XwP-A7-6Iz"/>
                         <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="lia-RH-8qy"/>
                     </connections>
                 </viewController>
@@ -531,7 +564,7 @@
         <image name="fb-login" width="201" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ooS-mA-afM"/>
         <segue reference="xiX-19-dJi"/>
+        <segue reference="lia-RH-8qy"/>
     </inferredMetricsTieBreakers>
 </document>
