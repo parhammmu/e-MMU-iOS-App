@@ -78,17 +78,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="business" translatesAutoresizingMaskIntoConstraints="NO" id="KrJ-qe-Qf9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business" translatesAutoresizingMaskIntoConstraints="NO" id="KrJ-qe-Qf9">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d1G-bX-GWv">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1G-bX-GWv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0QT-qr-eep">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlL-qf-C6B">
-                                            <rect key="frame" x="277" y="550" width="62" height="30"/>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EtV-oA-fwY">
+                                            <rect key="frame" x="0.0" y="219" width="600" height="162"/>
+                                        </pickerView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Choose your faculty:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MI7-vq-lyi">
+                                            <rect key="frame" x="193" y="190" width="215" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlL-qf-C6B">
+                                            <rect key="frame" x="231" y="550" width="139" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="139" id="Vlc-qr-tM1"/>
+                                            </constraints>
                                             <state key="normal" title="Continue">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -97,12 +109,36 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="MI7-vq-lyi" secondAttribute="centerX" id="0P2-tB-8Sy"/>
+                                        <constraint firstItem="EtV-oA-fwY" firstAttribute="top" secondItem="MI7-vq-lyi" secondAttribute="bottom" constant="8" id="Jc4-kQ-hkQ"/>
+                                        <constraint firstAttribute="centerX" secondItem="RlL-qf-C6B" secondAttribute="centerX" id="Kcp-H5-S6s"/>
+                                        <constraint firstAttribute="centerY" secondItem="EtV-oA-fwY" secondAttribute="centerY" id="Sf0-AN-ryV"/>
+                                        <constraint firstItem="EtV-oA-fwY" firstAttribute="leading" secondItem="0QT-qr-eep" secondAttribute="leading" id="f4X-PY-XMZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="RlL-qf-C6B" secondAttribute="bottom" constant="20" id="kSd-nE-h70"/>
+                                        <constraint firstAttribute="centerX" secondItem="EtV-oA-fwY" secondAttribute="centerX" id="phO-Wt-4fN"/>
+                                        <constraint firstAttribute="trailing" secondItem="EtV-oA-fwY" secondAttribute="trailing" id="uQn-WE-sLa"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KrJ-qe-Qf9" firstAttribute="top" secondItem="BeY-Sf-fi5" secondAttribute="top" id="5N7-Ly-KpQ"/>
+                            <constraint firstAttribute="trailing" secondItem="KrJ-qe-Qf9" secondAttribute="trailing" id="AUb-tp-BhX"/>
+                            <constraint firstItem="d1G-bX-GWv" firstAttribute="leading" secondItem="BeY-Sf-fi5" secondAttribute="leading" id="IIN-1Z-wCm"/>
+                            <constraint firstAttribute="trailing" secondItem="d1G-bX-GWv" secondAttribute="trailing" id="OVf-NB-Zpv"/>
+                            <constraint firstItem="Sj9-yc-MK7" firstAttribute="top" secondItem="d1G-bX-GWv" secondAttribute="bottom" id="TwK-Gt-I7e"/>
+                            <constraint firstItem="KrJ-qe-Qf9" firstAttribute="leading" secondItem="BeY-Sf-fi5" secondAttribute="leading" id="VNn-7Q-wqO"/>
+                            <constraint firstItem="d1G-bX-GWv" firstAttribute="top" secondItem="BeY-Sf-fi5" secondAttribute="top" id="oDn-sR-vgN"/>
+                            <constraint firstItem="Sj9-yc-MK7" firstAttribute="top" secondItem="KrJ-qe-Qf9" secondAttribute="bottom" id="vsc-O5-ons"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="continueButton" destination="RlL-qf-C6B" id="l1J-C8-8bH"/>
+                        <outlet property="facultyViewPicker" destination="EtV-oA-fwY" id="8x4-fK-eew"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wm4-0Q-8HD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

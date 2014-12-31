@@ -9,6 +9,8 @@
 import UIKit
 
 class MenuViewController: UITableViewController {
+    
+    let currentUser = PFUser.currentUser()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +104,8 @@ class MenuViewController: UITableViewController {
             if indexPath.row == 0 {
                 self.performSegueWithIdentifier("MyAccount", sender: self)
             } else {
-                //menuText?.text = "SIGN OUT"
+                PFUser.logOut()
+                self.performSegueWithIdentifier("MMUNews", sender: self)
             }
             
             
@@ -120,7 +123,34 @@ class MenuViewController: UITableViewController {
             let name = self.tableView.viewWithTag(3) as? UILabel
             name?.textColor = UIColor.whiteColor()
             name?.font = MENU_NAME_FONT
-            name?.text = "Parham Majdabadi"
+            name?.text = ""
+            
+            if PFUser.currentUser() != nil {
+                
+                let firstName = self.currentUser["firstName"] as? String
+                let lastName = self.currentUser["lastName"] as? String
+                
+                name?.text = firstName! + " " + lastName!
+                
+                let images = self.currentUser["pictures"] as? [PFFile]
+                
+                if images?.count > 0 {
+                    let profileView = self.tableView.viewWithTag(2) as? ProfileImageView
+                    
+                    let imageFile : PFFile! = images?.first
+                    
+                    imageFile.getDataInBackgroundWithBlock({ (data, error) -> Void in
+                        
+                        if error == nil {
+                            profileView?.image = UIImage(data: data)
+                        }
+                        
+                    })
+                    
+                }
+                
+            }
+            
         } else {
             cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             let menuText = self.tableView.viewWithTag(1) as? UILabel

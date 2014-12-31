@@ -22,4 +22,34 @@ class AppUtility: NSObject {
             vc.performSegueWithIdentifier("Login", sender: vc)
         }
     }
+    
+    class func showProgressViewForView(aView: UIView, isDimmed : Bool) {
+        let progressView = MBProgressHUD(view: aView)
+        progressView.mode = MBProgressHUDModeCustomView
+        progressView.dimBackground = isDimmed
+        progressView.color = UIColor.clearColor()
+        self.setAnimationForProgressView(progressView)
+        progressView.removeFromSuperViewOnHide = true
+        aView.addSubview(progressView)
+        progressView.show(true)
+    }
+    
+    private class func setAnimationForProgressView(hud : MBProgressHUD) {
+        let animationImagesName = ["bear1", "bear2", "bear3", "bear4", "bear5", "bear6", "bear7", "bear8"]
+        
+        var animationImages : [UIImage] = []
+        for var i = 0; i < animationImagesName.count; i++ {
+            animationImages.append(UIImage(named: animationImagesName[i])!)
+        }
+        
+        let imageView = UIImageView(image: UIImage(named: "bear1"))
+        imageView.animationImages = animationImages
+        imageView.animationDuration = 2
+        imageView.startAnimating()
+        hud.customView = imageView
+    }
+    
+    class func hideProgressViewFromView(aView : UIView) {
+        MBProgressHUD.hideAllHUDsForView(aView, animated: true)
+    }
 }

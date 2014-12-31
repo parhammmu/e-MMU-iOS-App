@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("oBYGdBE3UxlDD5eoGOoLT8SzXsk9wa3sinAtyCPK", clientKey: "pK14x4Xl4jSsRrHsYWKldF7BlS1inVo02yyv1yiW")
         //Parse.enableLocalDatastore()
         
+        PFFacebookUtils.initializeFacebook()
+        
         self.customSetup()
         
         
@@ -65,6 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UILabel.appearance().textColor = BODY_FONT_COLOUR
         UIButton.appearance().backgroundColor = BUTTON_COLOUR
         UIButton.appearance().titleLabel?.textColor = UIColor.whiteColor()
+        UIButton.appearance().tintColor = UIColor.whiteColor()
     }
 
 }
