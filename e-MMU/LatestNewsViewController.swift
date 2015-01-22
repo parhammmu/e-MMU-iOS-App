@@ -8,24 +8,74 @@
 
 import UIKit
 
+private let refreshViewHeight: CGFloat = 200
+
 class LatestNewsViewController: UITableViewController {
 
     @IBOutlet var menuButton: UIBarButtonItem!
+    var news: [RSSItem] = []
+    var refreshView : RefreshView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.refreshView = RefreshView(frame: CGRect(x: 0, y: -refreshViewHeight, width: CGRectGetWidth(view.bounds), height: refreshViewHeight), scrollView: tableView)
+        self.refreshView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        refreshView.delegate = self
+        view.insertSubview(refreshView, atIndex: 0)
+        
+        // Activate the menu
         AppUtility.MenuNavigationSetup(self.menuButton, viewController: self, navigationController: navigationController)
-
+        
+        // Parsing the RSS feed
+        self.parseFeed()
+        
     }
-
-    // MARK: - Helper methods
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        // Check user state (user is logged in or not)
         AppUtility.checkUser(self)
     }
     
+    // MARK: - Helper methods
+    
+    func parseFeed() {
+        let request = NSURLRequest(URL: NSURL(string: "http://diginnmmu.com/rss")!)
+        RSSParser.parseFeedForRequest(request, callback: { (feed, error) -> Void in
+            if error == nil {
+                if let myFeed = feed? {
+                    
+                    for item: RSSItem in myFeed.items {
+                        if let categories = item.categories {
+                            if !categories.isEmpty {
+                                if categories[0] != "Events" {
+                                    self.news.append(item)
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                    self.tableView.reloadData()
+                    if self.refreshView.isRefreshing {
+                        self.refreshView.endRefreshing()
+                    }
+                }
+            } else {
+                println(error)
+            }
+        })
+    }
+    
+    // MARK: - ScrollView deletage
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.refreshView.scrollViewDidScroll(scrollView)
+    }
+    
+    override func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        refreshView.scrollViewWillEndDragging(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
+    }
     
     // MARK: - Table view data source
 
@@ -35,63 +85,26 @@ class LatestNewsViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
-        return 0
+        
+        return self.news.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath) as NewsTableViewCell
 
-        // Configure the cell...
+        if !self.news.isEmpty {
+            let item = self.news[indexPath.row] as RSSItem
+            cell.textLabel?.text = item.title
+        }
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+extension LatestNewsViewController: RefreshViewDelegate {
+    func refreshViewDidRefresh(refreshView: RefreshView) {
+        self.parseFeed()
+    }
+}
+

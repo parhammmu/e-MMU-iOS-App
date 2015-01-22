@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01E46381A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46331A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift */; };
+		D01E46391A711CE500AA1C94 /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46341A711CE500AA1C94 /* RSSFeed.swift */; };
+		D01E463A1A711CE500AA1C94 /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46351A711CE500AA1C94 /* RSSItem.swift */; };
+		D01E463B1A711CE500AA1C94 /* RSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46361A711CE500AA1C94 /* RSSParser.swift */; };
+		D01E463C1A711CE500AA1C94 /* String+imageLinksFromHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46371A711CE500AA1C94 /* String+imageLinksFromHTML.swift */; };
+		D01E463E1A71280B00AA1C94 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E463D1A71280B00AA1C94 /* NewsTableViewCell.swift */; };
+		D01E46431A713C7800AA1C94 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46421A713C7800AA1C94 /* EventTableViewCell.swift */; };
+		D01E46451A713FCD00AA1C94 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46441A713FCD00AA1C94 /* RefreshView.swift */; };
+		D01E46471A71477700AA1C94 /* RefreshItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46461A71477700AA1C94 /* RefreshItem.swift */; };
 		D06B418D1A5332F000474FD2 /* FacultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B418C1A5332F000474FD2 /* FacultyViewController.swift */; };
 		D06EE81C1A49A6E700E56AEF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06EE81B1A49A6E700E56AEF /* FacebookSDK.framework */; };
 		D06EE81E1A49AA1700E56AEF /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D06EE81D1A49AA1700E56AEF /* libstdc++.6.dylib */; };
@@ -58,6 +67,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D01E46331A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+dateFromInternetDateTimeString.swift"; sourceTree = "<group>"; };
+		D01E46341A711CE500AA1C94 /* RSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
+		D01E46351A711CE500AA1C94 /* RSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
+		D01E46361A711CE500AA1C94 /* RSSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSParser.swift; sourceTree = "<group>"; };
+		D01E46371A711CE500AA1C94 /* String+imageLinksFromHTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+imageLinksFromHTML.swift"; sourceTree = "<group>"; };
+		D01E463D1A71280B00AA1C94 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		D01E46421A713C7800AA1C94 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		D01E46441A713FCD00AA1C94 /* RefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
+		D01E46461A71477700AA1C94 /* RefreshItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshItem.swift; sourceTree = "<group>"; };
 		D06B418C1A5332F000474FD2 /* FacultyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacultyViewController.swift; sourceTree = "<group>"; };
 		D06EE81B1A49A6E700E56AEF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D06EE81D1A49AA1700E56AEF /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
@@ -140,6 +158,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D01E46321A711CE500AA1C94 /* SwiftRSS */ = {
+			isa = PBXGroup;
+			children = (
+				D01E46331A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift */,
+				D01E46341A711CE500AA1C94 /* RSSFeed.swift */,
+				D01E46351A711CE500AA1C94 /* RSSItem.swift */,
+				D01E46361A711CE500AA1C94 /* RSSParser.swift */,
+				D01E46371A711CE500AA1C94 /* String+imageLinksFromHTML.swift */,
+			);
+			path = SwiftRSS;
+			sourceTree = "<group>";
+		};
+		D01E463F1A71308400AA1C94 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D01E46461A71477700AA1C94 /* RefreshItem.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		D079C96B1A49B56E0070FDEB /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				D0DFB4191A4C895700F54550 /* ProfileImageView.swift */,
+				D01E463D1A71280B00AA1C94 /* NewsTableViewCell.swift */,
+				D01E46421A713C7800AA1C94 /* EventTableViewCell.swift */,
+				D01E46441A713FCD00AA1C94 /* RefreshView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -209,6 +250,7 @@
 			children = (
 				D079C9761A49C9AE0070FDEB /* Main */,
 				D090440C1A484ED10092433D /* Vendor */,
+				D01E463F1A71308400AA1C94 /* Models */,
 				D079C9771A49C9E90070FDEB /* Views */,
 				D079C96F1A49B6C90070FDEB /* ViewControllers */,
 				D09043D41A484D2E0092433D /* Images.xcassets */,
@@ -272,6 +314,7 @@
 		D090440C1A484ED10092433D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				D01E46321A711CE500AA1C94 /* SwiftRSS */,
 				D079C96B1A49B56E0070FDEB /* SWRevealViewController */,
 				D090440D1A484F1D0092433D /* HUD */,
 			);
@@ -411,17 +454,26 @@
 				D0DFB4241A4C943900F54550 /* ClassRegistrationViewController.swift in Sources */,
 				D0DFB4141A4C770300F54550 /* AppUtility.swift in Sources */,
 				D079C9711A49B6FE0070FDEB /* MenuViewController.swift in Sources */,
+				D01E463B1A711CE500AA1C94 /* RSSParser.swift in Sources */,
 				D0DFB4261A4C945100F54550 /* MyAccountViewController.swift in Sources */,
 				D079C9731A49B9BA0070FDEB /* LatestNewsViewController.swift in Sources */,
+				D01E46451A713FCD00AA1C94 /* RefreshView.swift in Sources */,
 				D0DFB4121A4C73FF00F54550 /* AppConstant.swift in Sources */,
+				D01E463E1A71280B00AA1C94 /* NewsTableViewCell.swift in Sources */,
+				D01E46471A71477700AA1C94 /* RefreshItem.swift in Sources */,
 				D09044111A484F330092433D /* MBProgressHUD.m in Sources */,
 				D0DFB4201A4C93D600F54550 /* FindFriendsViewController.swift in Sources */,
+				D01E463A1A711CE500AA1C94 /* RSSItem.swift in Sources */,
+				D01E46431A713C7800AA1C94 /* EventTableViewCell.swift in Sources */,
 				D09043CE1A484D2E0092433D /* AppDelegate.swift in Sources */,
 				D06B418D1A5332F000474FD2 /* FacultyViewController.swift in Sources */,
 				D0DFB41A1A4C895700F54550 /* ProfileImageView.swift in Sources */,
 				D079C9751A49C9400070FDEB /* LatestEventsViewController.swift in Sources */,
 				D0DFB4221A4C93E200F54550 /* MessagesViewController.swift in Sources */,
 				D079C96E1A49B56E0070FDEB /* SWRevealViewController.m in Sources */,
+				D01E463C1A711CE500AA1C94 /* String+imageLinksFromHTML.swift in Sources */,
+				D01E46381A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift in Sources */,
+				D01E46391A711CE500AA1C94 /* RSSFeed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
