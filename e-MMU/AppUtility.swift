@@ -52,4 +52,19 @@ class AppUtility: NSObject {
     class func hideProgressViewFromView(aView : UIView) {
         MBProgressHUD.hideAllHUDsForView(aView, animated: true)
     }
+    
+    class func imageBasedOnCategory(categoryName : String!) -> UIImage! {
+        if categoryName == "Business" {
+            let randomIndex = Int(arc4random_uniform(UInt32(BUSINESS_CATEGORY_IMAGES.count)))
+            return UIImage(named: BUSINESS_CATEGORY_IMAGES[randomIndex])
+            
+        } else if categoryName == "Education" {
+            let randomIndex = Int(arc4random_uniform(UInt32(EDUCATION_CATEGORY_IMAGES.count)))
+            return UIImage(named: EDUCATION_CATEGORY_IMAGES[randomIndex])
+        } else {
+            let randomIndex = Int(arc4random_uniform(UInt32(RESEARCH_CATEGORY_IMAGES.count)))
+            return UIImage(named: RESEARCH_CATEGORY_IMAGES[randomIndex])
+        }
+        
+    }
 }

@@ -88,13 +88,27 @@ class LatestNewsViewController: UITableViewController {
         
         return self.news.count
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 140.0
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath) as NewsTableViewCell
 
         if !self.news.isEmpty {
             let item = self.news[indexPath.row] as RSSItem
-            cell.textLabel?.text = item.title
+            cell.titleLabel.text = item.title
+            cell.excerptLabel.text = item.itemDescription
+            
+            if !item.categories.isEmpty {
+                let category = item.categories[0]
+                cell.imageView?.image = AppUtility.imageBasedOnCategory(category)
+            } else {
+                
+            }
+            
+    
         }
 
         return cell

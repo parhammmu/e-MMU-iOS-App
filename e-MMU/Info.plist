@@ -52,5 +52,7 @@
 		<string>OpenSans-Regular.ttf</string>
 		<string>Roboto-Bold.ttf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

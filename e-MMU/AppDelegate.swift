@@ -60,7 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func customSetup() {
-        UINavigationBar.appearance().backgroundColor = NAVIGATION_COLOUR
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        UINavigationBar.appearance().barTintColor = NAVIGATION_COLOUR
         UINavigationBar.appearance().tintColor = NAVIGATION_TINT_COLOUR
         UITableViewCell.appearance().backgroundColor = BG_COLOUR
         UITableView.appearance().backgroundColor = BG_COLOUR
