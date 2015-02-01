@@ -23,7 +23,7 @@ class AppUtility: NSObject {
         }
     }
     
-    class func showProgressViewForView(aView: UIView, isDimmed : Bool) {
+    class func showProgressViewForView(aView: UIView!, isDimmed : Bool) {
         let progressView = MBProgressHUD(view: aView)
         progressView.mode = MBProgressHUDModeCustomView
         progressView.dimBackground = isDimmed
@@ -35,21 +35,26 @@ class AppUtility: NSObject {
     }
     
     private class func setAnimationForProgressView(hud : MBProgressHUD) {
-        let animationImagesName = ["bear1", "bear2", "bear3", "bear4", "bear5", "bear6", "bear7", "bear8"]
         
-        var animationImages : [UIImage] = []
-        for var i = 0; i < animationImagesName.count; i++ {
-            animationImages.append(UIImage(named: animationImagesName[i])!)
-        }
-        
-        let imageView = UIImageView(image: UIImage(named: "bear1"))
-        imageView.animationImages = animationImages
+        let imageView = UIImageView(image: UIImage(named: "loading1"))
+        imageView.animationImages = self.getAnimationImages()
         imageView.animationDuration = 2
         imageView.startAnimating()
         hud.customView = imageView
     }
     
-    class func hideProgressViewFromView(aView : UIView) {
+    class func getAnimationImages() -> [UIImage] {
+        let animationImagesName = ["loading1", "loading2", "loading3"]
+        
+        var animationImages : [UIImage] = []
+        for var i = 0; i < animationImagesName.count; i++ {
+            animationImages.append(UIImage(named: animationImagesName[i])!)
+        }
+        return animationImages
+
+    }
+    
+    class func hideProgressViewFromView(aView : UIView!) {
         MBProgressHUD.hideAllHUDsForView(aView, animated: true)
     }
     

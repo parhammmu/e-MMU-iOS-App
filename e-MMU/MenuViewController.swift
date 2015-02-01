@@ -10,7 +10,9 @@ import UIKit
 
 class MenuViewController: UITableViewController {
     
-    let currentUser = PFUser.currentUser()
+    var currentUser : PFUser {
+        return PFUser.currentUser()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

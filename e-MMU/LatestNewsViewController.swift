@@ -8,24 +8,20 @@
 
 import UIKit
 
-private let refreshViewHeight: CGFloat = 200
-
 class LatestNewsViewController: UITableViewController {
 
     @IBOutlet var menuButton: UIBarButtonItem!
     var news: [RSSItem] = []
-    var refreshView : RefreshView!
+    var selectedUrl : NSURL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refreshView = RefreshView(frame: CGRect(x: 0, y: -refreshViewHeight, width: CGRectGetWidth(view.bounds), height: refreshViewHeight), scrollView: tableView)
-        self.refreshView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        refreshView.delegate = self
-        view.insertSubview(refreshView, atIndex: 0)
-        
         // Activate the menu
         AppUtility.MenuNavigationSetup(self.menuButton, viewController: self, navigationController: navigationController)
+        
+        // Add loading to view
+        AppUtility.showProgressViewForView(self.navigationController!.view, isDimmed: true)
         
         // Parsing the RSS feed
         self.parseFeed()
@@ -36,6 +32,15 @@ class LatestNewsViewController: UITableViewController {
         super.viewDidAppear(animated)
         // Check user state (user is logged in or not)
         AppUtility.checkUser(self)
+        
+        // Add pull to refresh
+        self.tableView.addPullToRefreshWithActionHandler { () -> Void in
+            self.tableView.pullToRefreshView.arrowColor = MAIN_FONT_COLOUR
+            self.tableView.pullToRefreshView.textColor = MAIN_FONT_COLOUR
+            self.parseFeed()
+            self.tableView.pullToRefreshView.stopAnimating()
+        }
+        
     }
     
     // MARK: - Helper methods
@@ -58,23 +63,13 @@ class LatestNewsViewController: UITableViewController {
                         
                     }
                     self.tableView.reloadData()
-                    if self.refreshView.isRefreshing {
-                        self.refreshView.endRefreshing()
-                    }
                 }
             } else {
                 println(error)
             }
+            // Hide loading view
+            AppUtility.hideProgressViewFromView(self.navigationController!.view)
         })
-    }
-    
-    // MARK: - ScrollView deletage
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        self.refreshView.scrollViewDidScroll(scrollView)
-    }
-    
-    override func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        refreshView.scrollViewWillEndDragging(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
     
     // MARK: - Table view data source
@@ -92,6 +87,12 @@ class LatestNewsViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 140.0
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = self.news[indexPath.row] as RSSItem
+        self.selectedUrl = item.link
+        self.performSegueWithIdentifier("LatestSegue", sender: self)
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath) as NewsTableViewCell
@@ -99,7 +100,12 @@ class LatestNewsViewController: UITableViewController {
         if !self.news.isEmpty {
             let item = self.news[indexPath.row] as RSSItem
             cell.titleLabel.text = item.title
-            cell.excerptLabel.text = item.itemDescription
+            
+            if let description = item.itemDescription {
+                // Stripe HTML tags
+                let str = description.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+                cell.excerptLabel.text = str
+            }
             
             if !item.categories.isEmpty {
                 let category = item.categories[0]
@@ -113,12 +119,13 @@ class LatestNewsViewController: UITableViewController {
 
         return cell
     }
-
-}
-
-extension LatestNewsViewController: RefreshViewDelegate {
-    func refreshViewDidRefresh(refreshView: RefreshView) {
-        self.parseFeed()
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "LatestSegue" {
+            let ldvc = segue.destinationViewController as? LatestDetailViewController
+            ldvc?.latestUrl = self.selectedUrl
+        }
     }
+
 }
 

@@ -30,7 +30,10 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func setupAppearance() {
-        
+        self.titleLabel.font = HEADER_FONT
+        self.excerptLabel.font = BODY_FONT
+        self.titleLabel.textColor = MAIN_FONT_COLOUR
+        self.excerptLabel.textColor = MAIN_FONT_COLOUR
     }
 
 }

@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = NAVIGATION_TINT_COLOUR
         UITableViewCell.appearance().backgroundColor = BG_COLOUR
         UITableView.appearance().backgroundColor = BG_COLOUR
+        UITableView.appearance().tableFooterView = UIView(frame: CGRectZero)
         UILabel.appearance().textColor = BODY_FONT_COLOUR
         UIButton.appearance().backgroundColor = BUTTON_COLOUR
         UIButton.appearance().titleLabel?.textColor = UIColor.whiteColor()
