@@ -11,79 +11,96 @@ import UIKit
 class MessagesViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    var messages : [PFObject] = []
+    var avators = Dictionary<String, String>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Activate the menu
         AppUtility.MenuNavigationSetup(self.menuButton, viewController: self, navigationController: navigationController)
+        
+        // Load messages
+        self.loadMessages()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // Check user state (user is logged in or not)
+        AppUtility.checkUser(self)
+        
+        // Add pull to refresh
+        self.tableView.addPullToRefreshWithActionHandler { () -> Void in
+            self.tableView.pullToRefreshView.arrowColor = MAIN_FONT_COLOUR
+            self.tableView.pullToRefreshView.textColor = MAIN_FONT_COLOUR
+            self.loadMessages()
+            self.tableView.pullToRefreshView.stopAnimating()
+        }
+        
+    }
+
+    
+    // MARK: - Helper methods
+    
+    func loadMessages() {
+        
+        // Get messages when the user is sender
+        let userOneQuery = PFQuery(className: CONVERSATION_KEY)
+        userOneQuery.whereKey(CONVERSATION_USER_ONE_KEY, equalTo: PFUser.currentUser())
+        userOneQuery.whereKey(CONVERSATION_IS_VALID_KEY, equalTo: true)
+        userOneQuery.orderByDescending(UPDATED_AT_KEY)
+        userOneQuery.limit = 50
+        
+        // Get messages when the user is receiver
+        let userTwoQuery = PFQuery(className: CONVERSATION_KEY)
+        userTwoQuery.whereKey(CONVERSATION_USER_TWO_KEY, equalTo: PFUser.currentUser())
+        userTwoQuery.whereKey(CONVERSATION_IS_VALID_KEY, equalTo: true)
+        userTwoQuery.orderByDescending(UPDATED_AT_KEY)
+        userTwoQuery.limit = 50
+        
+        // Compund query
+        let query = PFQuery.orQueryWithSubqueries([userOneQuery, userTwoQuery])
+        query.findObjectsInBackgroundWithBlock { (objects : [AnyObject]!, error : NSError!) -> Void in
+            
+            AppUtility.showProgressViewForView(self.navigationController?.view, isDimmed: true)
+            
+            if error == nil {
+                
+                if let messages = objects as? [PFObject] {
+                    self.messages = messages
+                    self.tableView.reloadData()
+                }
+                
+            } else {
+                println(error)
+            }
+            
+            AppUtility.hideProgressViewFromView(self.navigationController?.view)
+        }
+
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return self.messages.count
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as MessageTableViewCell
 
         // Configure the cell...
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

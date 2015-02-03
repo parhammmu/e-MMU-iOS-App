@@ -12,10 +12,16 @@ class ClassRegistrationViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var qrImageView: UIImageView!
+    @IBOutlet weak var heroLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Activate the menu
         AppUtility.MenuNavigationSetup(self.menuButton, viewController: self, navigationController: navigationController)
+        
+        self.heroLabel.textColor = MAIN_FONT_COLOUR
+        self.heroLabel.font = BODY_FONT
     
     }
     

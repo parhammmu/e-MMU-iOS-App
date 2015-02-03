@@ -18,7 +18,7 @@ class MenuViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.backgroundColor = MENU_BG
-        tableView.separatorColor = MENU_BORDER_COLOUR
+        tableView.separatorColor = MENU_BG
 
     }
 
@@ -48,7 +48,10 @@ class MenuViewController: UITableViewController {
         if section == 0 {
             return nil
         }
-        var header = UIView(frame: CGRectMake(0, 0, self.tableView.frame.width, 40))
+        var whileLine = UIView(frame: CGRectMake(30, 49, self.tableView.frame.width - 90, 2))
+        whileLine.backgroundColor = UIColor.whiteColor()
+        var header = UIView(frame: CGRectMake(0, 0, self.tableView.frame.width, 60))
+        header.backgroundColor = MENU_BG
         var label = UILabel(frame: CGRectMake(30, 0, self.tableView.frame.width - 60, 40))
         label.textColor = MENU_FONT_BODY_COLOUR
         label.font = MENU_HEADER_FONT
@@ -65,6 +68,7 @@ class MenuViewController: UITableViewController {
             default:
             label.text = ""
         }
+        header.addSubview(whileLine)
         header.addSubview(label)
         
         return header
@@ -74,7 +78,7 @@ class MenuViewController: UITableViewController {
         if section == 0 {
             return 0
         }
-        return 40
+        return 60
     }
 
     

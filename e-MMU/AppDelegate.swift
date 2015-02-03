@@ -69,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UILabel.appearance().textColor = BODY_FONT_COLOUR
         UIButton.appearance().backgroundColor = BUTTON_COLOUR
         UIButton.appearance().titleLabel?.textColor = UIColor.whiteColor()
+        UIButton.appearance().titleLabel?.font = BUTTON_FONT
         UIButton.appearance().tintColor = UIColor.whiteColor()
     }
 

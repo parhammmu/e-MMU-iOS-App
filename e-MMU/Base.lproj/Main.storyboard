@@ -506,11 +506,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eZU-BN-c3W">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="100" id="eZU-BN-c3W" customClass="MessageTableViewCell" customModule="e_MMU" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eZU-BN-c3W" id="PVi-8o-mSY">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileImageHolder" translatesAutoresizingMaskIntoConstraints="NO" id="Cs7-3g-jgb" customClass="ProfileImageView" customModule="e_MMU" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="12" width="75" height="75"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="PHg-oY-kKZ"/>
+                                                <constraint firstAttribute="height" constant="75" id="TmF-VX-O3T"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="75"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uQ-ej-tOp">
+                                            <rect key="frame" x="91" y="39" width="468" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Rsb-4B-t5c"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nly-KK-XXa">
+                                            <rect key="frame" x="567" y="21" width="25" height="58"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="GlZ-RG-LNb"/>
+                                                <constraint firstAttribute="height" constant="58" id="QjG-nW-Vuz"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="nly-KK-XXa" secondAttribute="centerY" id="3y8-0a-fxh"/>
+                                        <constraint firstAttribute="trailing" secondItem="nly-KK-XXa" secondAttribute="trailing" constant="8" id="9fp-4g-8Zb"/>
+                                        <constraint firstItem="5uQ-ej-tOp" firstAttribute="leading" secondItem="Cs7-3g-jgb" secondAttribute="trailing" constant="8" id="I5g-P1-6a7"/>
+                                        <constraint firstItem="Cs7-3g-jgb" firstAttribute="leading" secondItem="PVi-8o-mSY" secondAttribute="leading" constant="8" id="baa-Kg-P1a"/>
+                                        <constraint firstAttribute="centerY" secondItem="5uQ-ej-tOp" secondAttribute="centerY" id="pUh-Rs-kRH"/>
+                                        <constraint firstAttribute="centerY" secondItem="Cs7-3g-jgb" secondAttribute="centerY" id="psd-QW-7ss"/>
+                                        <constraint firstItem="nly-KK-XXa" firstAttribute="leading" secondItem="5uQ-ej-tOp" secondAttribute="trailing" constant="8" id="wil-r9-Zpr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="5uQ-ej-tOp" id="sfz-Kd-BAF"/>
+                                    <outlet property="profileImageView" destination="Cs7-3g-jgb" id="Gab-am-0DW"/>
+                                    <outlet property="sexImageView" destination="nly-KK-XXa" id="DM2-QC-DaO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -528,7 +576,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5G5-QY-Nns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2448" y="-1643"/>
+            <point key="canvasLocation" x="2448" y="-1645"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2TY-6f-bV9">
@@ -568,6 +616,18 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Phu-MP-bsa">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show the QR code to your teacher" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51T-KZ-Ydd">
+                                            <rect key="frame" x="167" y="80" width="266" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="51T-KZ-Ydd" secondAttribute="centerX" id="C81-7U-JeM"/>
+                                        <constraint firstItem="51T-KZ-Ydd" firstAttribute="top" secondItem="Phu-MP-bsa" secondAttribute="top" constant="80" id="i1o-jR-Y0N"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -597,6 +657,7 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="0Ne-Fc-Hhz"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="heroLabel" destination="51T-KZ-Ydd" id="sKC-Nc-BTf"/>
                         <outlet property="menuButton" destination="0Ne-Fc-Hhz" id="5Ex-Uw-jpX"/>
                         <outlet property="qrImageView" destination="j3H-7Z-JJN" id="XwP-A7-6Iz"/>
                         <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="lia-RH-8qy"/>
@@ -699,10 +760,11 @@
         <image name="business" width="405" height="273"/>
         <image name="fb-login" width="201" height="37"/>
         <image name="menu" width="24" height="19"/>
+        <image name="profileImageHolder" width="170" height="170"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zet-HI-VfA"/>
         <segue reference="xiX-19-dJi"/>
-        <segue reference="a9j-BL-bo6"/>
+        <segue reference="iNZ-2h-WuZ"/>
+        <segue reference="Zet-HI-VfA"/>
     </inferredMetricsTieBreakers>
 </document>
