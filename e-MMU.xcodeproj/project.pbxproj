@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D00957DB1A7E646A00CDF686 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = D00957D81A7E646A00CDF686 /* UIScrollView+SVInfiniteScrolling.m */; };
 		D00957DC1A7E646A00CDF686 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D00957DA1A7E646A00CDF686 /* UIScrollView+SVPullToRefresh.m */; };
+		D01568291A8379B30006929A /* FindFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01568281A8379B30006929A /* FindFriendTableViewCell.swift */; };
+		D015682B1A838E1A0006929A /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015682A1A838E1A0006929A /* FilterTableViewController.swift */; };
 		D01E46381A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46331A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift */; };
 		D01E46391A711CE500AA1C94 /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46341A711CE500AA1C94 /* RSSFeed.swift */; };
 		D01E463A1A711CE500AA1C94 /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46351A711CE500AA1C94 /* RSSItem.swift */; };
@@ -24,6 +26,8 @@
 		D079C9711A49B6FE0070FDEB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079C9701A49B6FE0070FDEB /* MenuViewController.swift */; };
 		D079C9731A49B9BA0070FDEB /* LatestNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079C9721A49B9BA0070FDEB /* LatestNewsViewController.swift */; };
 		D079C9751A49C9400070FDEB /* LatestEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079C9741A49C9400070FDEB /* LatestEventsViewController.swift */; };
+		D084B34C1A83DEE50039523B /* NMRangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D084B34B1A83DEE50039523B /* NMRangeSlider.m */; };
+		D084B34E1A83EC1E0039523B /* FacultyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084B34D1A83EC1E0039523B /* FacultyListTableViewController.swift */; };
 		D09043CE1A484D2E0092433D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09043CD1A484D2E0092433D /* AppDelegate.swift */; };
 		D09043D31A484D2E0092433D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09043D11A484D2E0092433D /* Main.storyboard */; };
 		D09043D51A484D2E0092433D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09043D41A484D2E0092433D /* Images.xcassets */; };
@@ -119,6 +123,8 @@
 		D00957D81A7E646A00CDF686 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		D00957D91A7E646A00CDF686 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		D00957DA1A7E646A00CDF686 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		D01568281A8379B30006929A /* FindFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindFriendTableViewCell.swift; sourceTree = "<group>"; };
+		D015682A1A838E1A0006929A /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		D01E46331A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+dateFromInternetDateTimeString.swift"; sourceTree = "<group>"; };
 		D01E46341A711CE500AA1C94 /* RSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
 		D01E46351A711CE500AA1C94 /* RSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 		D079C9701A49B6FE0070FDEB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D079C9721A49B9BA0070FDEB /* LatestNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestNewsViewController.swift; sourceTree = "<group>"; };
 		D079C9741A49C9400070FDEB /* LatestEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestEventsViewController.swift; sourceTree = "<group>"; };
+		D084B34A1A83DEE50039523B /* NMRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMRangeSlider.h; sourceTree = "<group>"; };
+		D084B34B1A83DEE50039523B /* NMRangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMRangeSlider.m; sourceTree = "<group>"; };
+		D084B34D1A83EC1E0039523B /* FacultyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacultyListTableViewController.swift; sourceTree = "<group>"; };
 		D09043C81A484D2E0092433D /* e-MMU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-MMU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09043CC1A484D2E0092433D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09043CD1A484D2E0092433D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -366,6 +375,8 @@
 				D0DFB4271A4CAA4800F54550 /* LoginViewController.swift */,
 				D06B418C1A5332F000474FD2 /* FacultyViewController.swift */,
 				D0EDACCE1A7AC1C800BBA28D /* LatestDetailViewController.swift */,
+				D015682A1A838E1A0006929A /* FilterTableViewController.swift */,
+				D084B34D1A83EC1E0039523B /* FacultyListTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -389,8 +400,18 @@
 				D01E463D1A71280B00AA1C94 /* NewsTableViewCell.swift */,
 				D01E46421A713C7800AA1C94 /* EventTableViewCell.swift */,
 				D0BC18CE1A816549000A2D6D /* MessageTableViewCell.swift */,
+				D01568281A8379B30006929A /* FindFriendTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		D084B3491A83DED00039523B /* NMRangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				D084B34A1A83DEE50039523B /* NMRangeSlider.h */,
+				D084B34B1A83DEE50039523B /* NMRangeSlider.m */,
+			);
+			name = NMRangeSlider;
 			sourceTree = "<group>";
 		};
 		D09043BF1A484D2E0092433D = {
@@ -481,6 +502,7 @@
 		D090440C1A484ED10092433D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				D084B3491A83DED00039523B /* NMRangeSlider */,
 				D0BC18D01A816B21000A2D6D /* JSQSystemSoundPlayer */,
 				D0BC18361A81621B000A2D6D /* JSQMessagesViewController */,
 				D00957D51A7E646A00CDF686 /* SVPullToRefresh */,
@@ -822,11 +844,13 @@
 				D0DFB4241A4C943900F54550 /* ClassRegistrationViewController.swift in Sources */,
 				D0BC18A81A81621B000A2D6D /* UIDevice+JSQMessages.m in Sources */,
 				D0BC18BA1A81621B000A2D6D /* JSQMessagesBubbleImage.m in Sources */,
+				D015682B1A838E1A0006929A /* FilterTableViewController.swift in Sources */,
 				D0DFB4141A4C770300F54550 /* AppUtility.swift in Sources */,
 				D0BC18AF1A81621B000A2D6D /* JSQMessagesBubbleImageFactory.m in Sources */,
 				D079C9711A49B6FE0070FDEB /* MenuViewController.swift in Sources */,
 				D01E463B1A711CE500AA1C94 /* RSSParser.swift in Sources */,
 				D0BC18C61A81621B000A2D6D /* JSQMessagesLabel.m in Sources */,
+				D084B34E1A83EC1E0039523B /* FacultyListTableViewController.swift in Sources */,
 				D0BC18AE1A81621B000A2D6D /* JSQMessagesAvatarImageFactory.m in Sources */,
 				D0BC18CC1A81621B000A2D6D /* JSQMessagesTypingIndicatorFooterView.m in Sources */,
 				D0DFB4261A4C945100F54550 /* MyAccountViewController.swift in Sources */,
@@ -834,6 +858,7 @@
 				D079C9731A49B9BA0070FDEB /* LatestNewsViewController.swift in Sources */,
 				D00957DC1A7E646A00CDF686 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				D0DFB4121A4C73FF00F54550 /* AppConstant.swift in Sources */,
+				D01568291A8379B30006929A /* FindFriendTableViewCell.swift in Sources */,
 				D0BC18CA1A81621B000A2D6D /* JSQMessagesToolbarContentView.m in Sources */,
 				D01E463E1A71280B00AA1C94 /* NewsTableViewCell.swift in Sources */,
 				D0BC18B11A81621B000A2D6D /* JSQMessagesTimestampFormatter.m in Sources */,
@@ -861,6 +886,7 @@
 				D00957DB1A7E646A00CDF686 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				D0BC18AA1A81621B000A2D6D /* UIView+JSQMessages.m in Sources */,
 				D0BC18B31A81621B000A2D6D /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
+				D084B34C1A83DEE50039523B /* NMRangeSlider.m in Sources */,
 				D0BC18B81A81621B000A2D6D /* JSQMessage.m in Sources */,
 				D0BC18BB1A81621B000A2D6D /* JSQPhotoMediaItem.m in Sources */,
 				D0DFB4221A4C93E200F54550 /* MessagesViewController.swift in Sources */,

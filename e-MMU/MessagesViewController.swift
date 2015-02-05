@@ -44,25 +44,23 @@ class MessagesViewController: UITableViewController {
     
     func loadMessages() {
         
+        AppUtility.showProgressViewForView(self.navigationController?.view, isDimmed: true)
+        
         // Get messages when the user is sender
         let userOneQuery = PFQuery(className: CONVERSATION_KEY)
         userOneQuery.whereKey(CONVERSATION_USER_ONE_KEY, equalTo: PFUser.currentUser())
         userOneQuery.whereKey(CONVERSATION_IS_VALID_KEY, equalTo: true)
-        userOneQuery.orderByDescending(UPDATED_AT_KEY)
-        userOneQuery.limit = 50
         
         // Get messages when the user is receiver
         let userTwoQuery = PFQuery(className: CONVERSATION_KEY)
         userTwoQuery.whereKey(CONVERSATION_USER_TWO_KEY, equalTo: PFUser.currentUser())
         userTwoQuery.whereKey(CONVERSATION_IS_VALID_KEY, equalTo: true)
-        userTwoQuery.orderByDescending(UPDATED_AT_KEY)
-        userTwoQuery.limit = 50
         
         // Compund query
         let query = PFQuery.orQueryWithSubqueries([userOneQuery, userTwoQuery])
+        query.orderByDescending(UPDATED_AT_KEY)
+        query.limit = 50
         query.findObjectsInBackgroundWithBlock { (objects : [AnyObject]!, error : NSError!) -> Void in
-            
-            AppUtility.showProgressViewForView(self.navigationController?.view, isDimmed: true)
             
             if error == nil {
                 
@@ -78,7 +76,6 @@ class MessagesViewController: UITableViewController {
             AppUtility.hideProgressViewFromView(self.navigationController?.view)
         }
 
-        
     }
 
     // MARK: - Table view data source

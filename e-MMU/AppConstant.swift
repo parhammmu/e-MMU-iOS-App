@@ -41,6 +41,7 @@ let CONVERSATION_TEXT_KEY = "ConversationText"
 let BLACKLIST_KEY = "Blacklist"
 
 // Keys for attribute names
+let OBJECT_ID_KEY = "objectId"
 let UPDATED_AT_KEY = "updateAt"
 let CREATED_AT_KEY = "createdAt"
 let CONVERSATION_IS_VALID_KEY = "isValid"
@@ -48,5 +49,33 @@ let CONVERSATION_USER_ONE_KEY = "userOne"
 let CONVERSATION_USER_TWO_KEY = "userTwo"
 let CONVERSATION_TEXT_BELONG_TO_KEY = "belongTo"
 let CONVERSATION_TEXT_CONVERSATION_ID_KEY = "conversationId"
-let conversation_TEXT_TEXT_KEY = "text"
+let CONVERSATION_TEXT_TEXT_KEY = "text"
+let USER_AGE_KEY = "age"
+let USER_BLACKLIST_KEY = "blacklist"
+let USER_PICTURES_KEY = "pictures"
+let USER_LAST_NAME_KEY = "lastName"
+let USER_FIRST_NAME_KEY = "firstName"
+let USER_GENDER_KEY = "gender"
+let USER_FACULTY_KEY = "faculty"
+let USER_EMAIL_KEY = "email"
+let USER_STUDENT_NUMBER = "studentNumber"
+
+
+// Enums
+enum Faculty : String {
+    case Business = "Faculty of Business and Law"
+    case Education = "Faculty of Education"
+    case Health = "Faculty of Health, Psychology and Social Care"
+    case Humanity = "Faculty of Humanities, Languages and Social Science"
+    case Science = "Faculty of Science and Engineering"
+    case Hollings = "Hollings Faculty"
+    case Art = "Manchester School of Art"
+    case Cheshire = "Cheshire campus"
+    case All = "All"
+}
+
+enum Sex : String {
+    case Male = "male"
+    case Female = "female"
+}
 
