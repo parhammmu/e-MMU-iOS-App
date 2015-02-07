@@ -18,7 +18,6 @@
 		D01E463C1A711CE500AA1C94 /* String+imageLinksFromHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46371A711CE500AA1C94 /* String+imageLinksFromHTML.swift */; };
 		D01E463E1A71280B00AA1C94 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E463D1A71280B00AA1C94 /* NewsTableViewCell.swift */; };
 		D01E46431A713C7800AA1C94 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46421A713C7800AA1C94 /* EventTableViewCell.swift */; };
-		D01E46471A71477700AA1C94 /* RefreshItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E46461A71477700AA1C94 /* RefreshItem.swift */; };
 		D06B418D1A5332F000474FD2 /* FacultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B418C1A5332F000474FD2 /* FacultyViewController.swift */; };
 		D06EE81C1A49A6E700E56AEF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06EE81B1A49A6E700E56AEF /* FacebookSDK.framework */; };
 		D06EE81E1A49AA1700E56AEF /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D06EE81D1A49AA1700E56AEF /* libstdc++.6.dylib */; };
@@ -139,7 +138,6 @@
 		D01E46371A711CE500AA1C94 /* String+imageLinksFromHTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+imageLinksFromHTML.swift"; sourceTree = "<group>"; };
 		D01E463D1A71280B00AA1C94 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		D01E46421A713C7800AA1C94 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		D01E46461A71477700AA1C94 /* RefreshItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshItem.swift; sourceTree = "<group>"; };
 		D06B418C1A5332F000474FD2 /* FacultyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacultyViewController.swift; sourceTree = "<group>"; };
 		D06EE81B1A49A6E700E56AEF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D06EE81D1A49AA1700E56AEF /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
@@ -362,7 +360,6 @@
 		D01E463F1A71308400AA1C94 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D01E46461A71477700AA1C94 /* RefreshItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -885,7 +882,6 @@
 				D01E463E1A71280B00AA1C94 /* NewsTableViewCell.swift in Sources */,
 				D0BC18B11A81621B000A2D6D /* JSQMessagesTimestampFormatter.m in Sources */,
 				D09457CC1A862A7E000DDDD2 /* ProfileNameTableViewCell.swift in Sources */,
-				D01E46471A71477700AA1C94 /* RefreshItem.swift in Sources */,
 				D0BC18C51A81621B000A2D6D /* JSQMessagesInputToolbar.m in Sources */,
 				D0BC18C91A81621B000A2D6D /* JSQMessagesMediaPlaceholderView.m in Sources */,
 				D09044111A484F330092433D /* MBProgressHUD.m in Sources */,

@@ -10,4 +10,5 @@
 #import "MBProgressHUD.h"
 #import "UIScrollView+SVPullToRefresh.h"
 #import "JSQMessagesViewController/JSQMessages.h"
+#import "JSQMessageData.h"
 #import "NMRangeSlider.h"

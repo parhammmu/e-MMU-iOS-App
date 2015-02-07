@@ -13,6 +13,7 @@ class ProfileTableViewController: UITableViewController, UIPageViewControllerDat
     var user : PFUser!
     var pageController : UIPageViewController!
     var numberOfPictures = 0
+    var conversationObject : PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +131,30 @@ class ProfileTableViewController: UITableViewController, UIPageViewControllerDat
     
     // Send message tapped, perfroming the sugue
     func sendMessageTapped() {
-        self.performSegueWithIdentifier("SendMessageSegue", sender: self)
+        
+        //Check to see if there is already a conversation between these two users
+        let firstQuery = PFQuery(className: CONVERSATION_KEY)
+        firstQuery.whereKey(CONVERSATION_USER_ONE_KEY, equalTo: self.user)
+        firstQuery.whereKey(CONVERSATION_USER_TWO_KEY, equalTo: PFUser.currentUser())
+        firstQuery.whereKey(CONVERSATION_IS_VALID_KEY, equalTo: true)
+        
+        let secondQuery = PFQuery(className: CONVERSATION_KEY)
+        secondQuery.whereKey(CONVERSATION_USER_ONE_KEY, equalTo: PFUser.currentUser())
+        secondQuery.whereKey(CONVERSATION_USER_TWO_KEY, equalTo: self.user)
+        secondQuery.whereKey(CONVERSATION_IS_VALID_KEY, equalTo: true)
+        
+        let compoundQuery = PFQuery.orQueryWithSubqueries([firstQuery, secondQuery])
+        compoundQuery.getFirstObjectInBackgroundWithBlock { (object: PFObject!, error: NSError!) -> Void in
+            
+            if error == nil {
+                self.conversationObject = object
+            } else {
+                println(error)
+            }
+            
+            self.performSegueWithIdentifier("SendMessageSegue", sender: self)
+            
+        }
     }
     
     // MARK: - PageViewController data source
@@ -264,8 +288,21 @@ class ProfileTableViewController: UITableViewController, UIPageViewControllerDat
         return self.cellForIndexPath(indexPath)
     }
     
-    
+    // MARK: - Action methods
     @IBAction func reportButtonTapped(sender: UIBarButtonItem) {
+        
+    }
+    
+    // MARK: - Segue Methods
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "sendMessageSegue" {
+            // Check to see if convesation object is not nil
+            if let object = self.conversationObject {
+                let mvc = segue.destinationViewController as? MessageViewController
+                mvc?.conversationObject = object
+            }
+            
+        }
     }
 
 }
