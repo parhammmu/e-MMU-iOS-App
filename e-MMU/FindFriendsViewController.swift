@@ -12,6 +12,11 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var students : [PFObject] = []
+    var selectedStudent : PFObject? = nil
+    var filteredAgeFrom : Int? = 0
+    var filteredAgeTo : Int? = 100
+    var filteredSex : Sex? = nil
+    var filteredFaculty : Faculty? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +38,7 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
         self.tableView.addPullToRefreshWithActionHandler { () -> Void in
             self.tableView.pullToRefreshView.arrowColor = MAIN_FONT_COLOUR
             self.tableView.pullToRefreshView.textColor = MAIN_FONT_COLOUR
-            
+            self.loadStudents(self.filteredAgeFrom, toAge: self.filteredAgeTo, sex: self.filteredSex, faculty: self.filteredFaculty)
             self.tableView.pullToRefreshView.stopAnimating()
         }
         
@@ -48,16 +53,16 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
         // exclude the current user
         query.whereKey("objectId", notEqualTo: PFUser.currentUser().objectId)
         // Filter the query based on given arguments
-        if let givenFromAge = fromAge {
+        if let givenFromAge = fromAge? {
             query.whereKey(USER_AGE_KEY, greaterThanOrEqualTo: givenFromAge)
         }
-        if let givenToAge = toAge {
+        if let givenToAge = toAge? {
             query.whereKey(USER_AGE_KEY, lessThanOrEqualTo: givenToAge)
         }
-        if let givenSex = sex {
+        if let givenSex = sex? {
             query.whereKey(USER_GENDER_KEY, equalTo: givenSex.rawValue)
         }
-        if let giveFaculty = faculty {
+        if let giveFaculty = faculty? {
             query.whereKey(USER_FACULTY_KEY, equalTo: giveFaculty.rawValue)
         }
         query.orderByDescending(UPDATED_AT_KEY)
@@ -119,6 +124,12 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
     func advanceFilterDismissed(controller: FilterTableViewController,fromAge: Int?, toAge: Int?, sex: Sex?, faculty: Faculty?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
         AppUtility.showProgressViewForView(self.navigationController?.view, isDimmed: true)
+        
+        self.filteredAgeFrom = fromAge
+        self.filteredAgeTo = toAge
+        self.filteredSex = sex
+        self.filteredFaculty = faculty
+        
         self.loadStudents(fromAge, toAge: toAge, sex: sex, faculty: faculty)
     }
 
@@ -134,6 +145,11 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.selectedStudent = self.students[indexPath.row]
+        self.performSegueWithIdentifier("ProfileSegue", sender: self)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -162,6 +178,14 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
             let nvc = segue.destinationViewController as? UINavigationController
             let fvc = nvc?.viewControllers[0] as? FilterTableViewController
             fvc?.filterDelegate = self
+        }
+        
+        if segue.identifier == "ProfileSegue" {
+            let pvc = segue.destinationViewController as? ProfileTableViewController
+            if let user = self.selectedStudent as? PFUser {
+                pvc?.user = user
+            }
+            
         }
     }
 }

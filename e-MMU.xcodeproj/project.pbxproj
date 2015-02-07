@@ -28,6 +28,7 @@
 		D079C9751A49C9400070FDEB /* LatestEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079C9741A49C9400070FDEB /* LatestEventsViewController.swift */; };
 		D084B34C1A83DEE50039523B /* NMRangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D084B34B1A83DEE50039523B /* NMRangeSlider.m */; };
 		D084B34E1A83EC1E0039523B /* FacultyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084B34D1A83EC1E0039523B /* FacultyListTableViewController.swift */; };
+		D084B3501A8406100039523B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084B34F1A8406100039523B /* ProfileTableViewController.swift */; };
 		D09043CE1A484D2E0092433D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09043CD1A484D2E0092433D /* AppDelegate.swift */; };
 		D09043D31A484D2E0092433D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09043D11A484D2E0092433D /* Main.storyboard */; };
 		D09043D51A484D2E0092433D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09043D41A484D2E0092433D /* Images.xcassets */; };
@@ -49,6 +50,12 @@
 		D09044091A484E1A0092433D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D09044081A484E1A0092433D /* libz.dylib */; };
 		D090440B1A484E240092433D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D090440A1A484E240092433D /* libsqlite3.dylib */; };
 		D09044111A484F330092433D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D09044101A484F330092433D /* MBProgressHUD.m */; };
+		D09457CA1A862A5B000DDDD2 /* ProfileSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09457C91A862A5B000DDDD2 /* ProfileSliderTableViewCell.swift */; };
+		D09457CC1A862A7E000DDDD2 /* ProfileNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09457CB1A862A7E000DDDD2 /* ProfileNameTableViewCell.swift */; };
+		D09457CE1A862A96000DDDD2 /* ProfileAgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09457CD1A862A96000DDDD2 /* ProfileAgeTableViewCell.swift */; };
+		D09457D01A862AA7000DDDD2 /* ProfileAboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09457CF1A862AA7000DDDD2 /* ProfileAboutTableViewCell.swift */; };
+		D09457D21A862C7B000DDDD2 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09457D11A862C7B000DDDD2 /* SliderViewController.swift */; };
+		D09457D41A86A126000DDDD2 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09457D31A86A126000DDDD2 /* MessageViewController.swift */; };
 		D0BC18A31A81621B000A2D6D /* JSQMessagesAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0BC18381A81621B000A2D6D /* JSQMessagesAssets.bundle */; };
 		D0BC18A41A81621B000A2D6D /* JSQMessages.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0BC183A1A81621B000A2D6D /* JSQMessages.strings */; };
 		D0BC18A51A81621B000A2D6D /* JSQSystemSoundPlayer+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BC184C1A81621B000A2D6D /* JSQSystemSoundPlayer+JSQMessages.m */; };
@@ -144,6 +151,7 @@
 		D084B34A1A83DEE50039523B /* NMRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMRangeSlider.h; sourceTree = "<group>"; };
 		D084B34B1A83DEE50039523B /* NMRangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMRangeSlider.m; sourceTree = "<group>"; };
 		D084B34D1A83EC1E0039523B /* FacultyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacultyListTableViewController.swift; sourceTree = "<group>"; };
+		D084B34F1A8406100039523B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		D09043C81A484D2E0092433D /* e-MMU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-MMU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09043CC1A484D2E0092433D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D09043CD1A484D2E0092433D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +179,12 @@
 		D090440E1A484F320092433D /* e-MMU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "e-MMU-Bridging-Header.h"; sourceTree = "<group>"; };
 		D090440F1A484F330092433D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D09044101A484F330092433D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D09457C91A862A5B000DDDD2 /* ProfileSliderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSliderTableViewCell.swift; sourceTree = "<group>"; };
+		D09457CB1A862A7E000DDDD2 /* ProfileNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNameTableViewCell.swift; sourceTree = "<group>"; };
+		D09457CD1A862A96000DDDD2 /* ProfileAgeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAgeTableViewCell.swift; sourceTree = "<group>"; };
+		D09457CF1A862AA7000DDDD2 /* ProfileAboutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAboutTableViewCell.swift; sourceTree = "<group>"; };
+		D09457D11A862C7B000DDDD2 /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		D09457D31A86A126000DDDD2 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		D0BC18381A81621B000A2D6D /* JSQMessagesAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSQMessagesAssets.bundle; sourceTree = "<group>"; };
 		D0BC183B1A81621B000A2D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/JSQMessages.strings; sourceTree = "<group>"; };
 		D0BC183C1A81621B000A2D6D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/JSQMessages.strings; sourceTree = "<group>"; };
@@ -377,6 +391,9 @@
 				D0EDACCE1A7AC1C800BBA28D /* LatestDetailViewController.swift */,
 				D015682A1A838E1A0006929A /* FilterTableViewController.swift */,
 				D084B34D1A83EC1E0039523B /* FacultyListTableViewController.swift */,
+				D084B34F1A8406100039523B /* ProfileTableViewController.swift */,
+				D09457D11A862C7B000DDDD2 /* SliderViewController.swift */,
+				D09457D31A86A126000DDDD2 /* MessageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -401,6 +418,10 @@
 				D01E46421A713C7800AA1C94 /* EventTableViewCell.swift */,
 				D0BC18CE1A816549000A2D6D /* MessageTableViewCell.swift */,
 				D01568281A8379B30006929A /* FindFriendTableViewCell.swift */,
+				D09457C91A862A5B000DDDD2 /* ProfileSliderTableViewCell.swift */,
+				D09457CB1A862A7E000DDDD2 /* ProfileNameTableViewCell.swift */,
+				D09457CD1A862A96000DDDD2 /* ProfileAgeTableViewCell.swift */,
+				D09457CF1A862AA7000DDDD2 /* ProfileAboutTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -847,6 +868,7 @@
 				D015682B1A838E1A0006929A /* FilterTableViewController.swift in Sources */,
 				D0DFB4141A4C770300F54550 /* AppUtility.swift in Sources */,
 				D0BC18AF1A81621B000A2D6D /* JSQMessagesBubbleImageFactory.m in Sources */,
+				D09457D21A862C7B000DDDD2 /* SliderViewController.swift in Sources */,
 				D079C9711A49B6FE0070FDEB /* MenuViewController.swift in Sources */,
 				D01E463B1A711CE500AA1C94 /* RSSParser.swift in Sources */,
 				D0BC18C61A81621B000A2D6D /* JSQMessagesLabel.m in Sources */,
@@ -862,6 +884,7 @@
 				D0BC18CA1A81621B000A2D6D /* JSQMessagesToolbarContentView.m in Sources */,
 				D01E463E1A71280B00AA1C94 /* NewsTableViewCell.swift in Sources */,
 				D0BC18B11A81621B000A2D6D /* JSQMessagesTimestampFormatter.m in Sources */,
+				D09457CC1A862A7E000DDDD2 /* ProfileNameTableViewCell.swift in Sources */,
 				D01E46471A71477700AA1C94 /* RefreshItem.swift in Sources */,
 				D0BC18C51A81621B000A2D6D /* JSQMessagesInputToolbar.m in Sources */,
 				D0BC18C91A81621B000A2D6D /* JSQMessagesMediaPlaceholderView.m in Sources */,
@@ -881,6 +904,7 @@
 				D09043CE1A484D2E0092433D /* AppDelegate.swift in Sources */,
 				D06B418D1A5332F000474FD2 /* FacultyViewController.swift in Sources */,
 				D0DFB41A1A4C895700F54550 /* ProfileImageView.swift in Sources */,
+				D09457CE1A862A96000DDDD2 /* ProfileAgeTableViewCell.swift in Sources */,
 				D0BC18BE1A81621B000A2D6D /* JSQMessagesCollectionView.m in Sources */,
 				D079C9751A49C9400070FDEB /* LatestEventsViewController.swift in Sources */,
 				D00957DB1A7E646A00CDF686 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
@@ -890,10 +914,14 @@
 				D0BC18B81A81621B000A2D6D /* JSQMessage.m in Sources */,
 				D0BC18BB1A81621B000A2D6D /* JSQPhotoMediaItem.m in Sources */,
 				D0DFB4221A4C93E200F54550 /* MessagesViewController.swift in Sources */,
+				D09457CA1A862A5B000DDDD2 /* ProfileSliderTableViewCell.swift in Sources */,
+				D09457D01A862AA7000DDDD2 /* ProfileAboutTableViewCell.swift in Sources */,
 				D0BC18B51A81621B000A2D6D /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
 				D079C96E1A49B56E0070FDEB /* SWRevealViewController.m in Sources */,
 				D01E463C1A711CE500AA1C94 /* String+imageLinksFromHTML.swift in Sources */,
+				D09457D41A86A126000DDDD2 /* MessageViewController.swift in Sources */,
 				D01E46381A711CE500AA1C94 /* NSDate+dateFromInternetDateTimeString.swift in Sources */,
+				D084B3501A8406100039523B /* ProfileTableViewController.swift in Sources */,
 				D0BC18D41A816B21000A2D6D /* JSQSystemSoundPlayer.m in Sources */,
 				D0BC18B71A81621B000A2D6D /* JSQMediaItem.m in Sources */,
 				D0BC18CF1A816549000A2D6D /* MessageTableViewCell.swift in Sources */,

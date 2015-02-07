@@ -72,4 +72,35 @@ class AppUtility: NSObject {
         }
         
     }
+    
+    class func getCurrentFaculty(label: UILabel?) -> Faculty? {
+        
+        if let text = label?.text {
+            switch text {
+            case Faculty.Art.rawValue :
+                return .Art
+            case Faculty.Education.rawValue :
+                return .Education
+            case Faculty.Health.rawValue :
+                return .Health
+            case Faculty.Humanity.rawValue :
+                return .Humanity
+            case Faculty.Science.rawValue :
+                return .Science
+            case Faculty.Business.rawValue :
+                return .Business
+            case Faculty.Hollings.rawValue :
+                return .Hollings
+            case Faculty.Cheshire.rawValue :
+                return .Cheshire
+            default :
+                return .All
+            }
+            
+        } else {
+            return nil
+        }
+        
+    }
+
 }

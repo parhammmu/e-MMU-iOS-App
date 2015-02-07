@@ -12,10 +12,12 @@ protocol FilterDelegate {
     func advanceFilterDismissed(controller: FilterTableViewController, fromAge: Int?, toAge: Int?, sex: Sex?, faculty: Faculty?)
 }
 
-class FilterTableViewController: UITableViewController {
+class FilterTableViewController: UITableViewController, FacultyDelegate {
     
     var filterDelegate : FilterDelegate?
     let check = UIImageView(image: UIImage(named: "check"))
+    var choosenFaculty : Faculty? = nil
+    var choosenSex : Sex? = nil
     
     @IBOutlet weak var ageSlider: NMRangeSlider!
     @IBOutlet weak var lowerRangeLabel: UILabel!
@@ -54,40 +56,19 @@ class FilterTableViewController: UITableViewController {
 
     }
     
-    func getCurrentFaculty() -> Faculty? {
-        
-        if let text = self.facultyLabel.text {
-            switch text {
-            case Faculty.Art.rawValue :
-                return .Art
-            case Faculty.Education.rawValue :
-                return .Education
-            case Faculty.Health.rawValue :
-                return .Health
-            case Faculty.Humanity.rawValue :
-                return .Humanity
-            case Faculty.Science.rawValue :
-                return .Science
-            case Faculty.Business.rawValue :
-                return .Business
-            case Faculty.Hollings.rawValue :
-                return .Hollings
-            case Faculty.Cheshire.rawValue :
-                return .Cheshire
-            default :
-                return .All
-            }
-
-        } else {
-            return nil
-        }
-        
-    }
     
     func updateSliderLabels() {
         self.lowerRangeLabel.text = "\(Int(self.ageSlider.lowerValue))"
         self.upperRangeLabel.text = "\(Int(self.ageSlider.upperValue))"
         
+    }
+    
+    // MARK: - Faculty delegate methods
+    
+    func newFacultyChoosen(controller: FacultyListTableViewController, faculty: Faculty) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.choosenFaculty = faculty
+        self.facultyLabel.text = faculty.rawValue
     }
 
     // MARK: - Table view data source and delegate
@@ -99,7 +80,8 @@ class FilterTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "FacultySegue" {
             let flvc = segue.destinationViewController as? FacultyListTableViewController
-            if let faculty = self.getCurrentFaculty() {
+            if let faculty = AppUtility.getCurrentFaculty(self.facultyLabel) {
+                flvc?.delegate = self
                 flvc?.currentFaculty = faculty
             }
             
@@ -117,8 +99,10 @@ class FilterTableViewController: UITableViewController {
             switch indexPath.row {
             case 1:
                 self.maleGenderCell.accessoryView = self.check
+                self.choosenSex = Sex.Male
             case 2:
                 self.femaleGenderCell.accessoryView = self.check
+                self.choosenSex = Sex.Female
             default:
                 self.bothGenderCell.accessoryView = self.check
             }
@@ -134,7 +118,7 @@ class FilterTableViewController: UITableViewController {
         self.updateSliderLabels()
     }
     @IBAction func doneTapped(sender: UIBarButtonItem) {
-        self.filterDelegate?.advanceFilterDismissed(self, fromAge: 10, toAge: 20, sex: nil, faculty: nil)
+        self.filterDelegate?.advanceFilterDismissed(self, fromAge: Int(self.ageSlider.lowerValue), toAge: Int(self.ageSlider.upperValue), sex: self.choosenSex, faculty: self.choosenFaculty)
         
     }
 

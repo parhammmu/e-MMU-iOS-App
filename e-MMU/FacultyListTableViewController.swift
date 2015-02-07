@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol FacultyDelegate {
+    func newFacultyChoosen(controller: FacultyListTableViewController, faculty: Faculty)
+}
+
 class FacultyListTableViewController: UITableViewController {
     
+    var delegate : FacultyDelegate?
     var currentFaculty : Faculty!
     let faculties = ["All", "Faculty of Business and Law", "Faculty of Education", "Faculty of Health, Psychology and Social Care", "Faculty of Humanities, Languages and Social Science", "Faculty of Science and Engineering", "Hollings Faculty", "Manchester School of Art", "Cheshire campus"]
     
@@ -26,6 +31,12 @@ class FacultyListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.faculties.count
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        self.delegate?.newFacultyChoosen(self, faculty: AppUtility.getCurrentFaculty(cell?.textLabel)!)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

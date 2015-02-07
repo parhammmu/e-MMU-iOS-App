@@ -20,10 +20,13 @@ let BUTTON_COLOUR = UIColor(red: 33.0/255.0, green: 204.0/255.0, blue: 159.0/255
 let MENU_FONT_BODY_COLOUR = UIColor.whiteColor()
 let MENU_BORDER_COLOUR = UIColor(red: 53.0/255.0, green: 58.0/255, blue: 76.0/255.0, alpha: 1.0)
 let MAIN_FONT_COLOUR = UIColor(red: 43.0/255.0, green: 47.0/255.0, blue: 62.0/255.0, alpha: 1.0)
+let GRAY_COLOUR = UIColor(red: 246.0/255.0, green: 246.0/255.0, blue: 246.0/255.0, alpha: 1.0)
+let GRAY_FONT_COLOUR = UIColor(red: 198.0/255.0, green: 198.0/255.0, blue: 198.0/255.0, alpha: 1.0)
 
 
 // Fonts
 let BODY_FONT = UIFont(name: "OpenSans", size: 13.0)
+let PROFILE_BODY_FONT = UIFont(name: "OpenSans", size: 16.0)
 let HEADER_FONT = UIFont(name: "Roboto-Bold", size: 16.0)
 let MENU_BODY_FONT = UIFont(name: "OpenSans", size: 14.0)
 let MENU_HEADER_FONT = UIFont(name: "OpenSans", size: 25.0)
@@ -58,6 +61,7 @@ let USER_FIRST_NAME_KEY = "firstName"
 let USER_GENDER_KEY = "gender"
 let USER_FACULTY_KEY = "faculty"
 let USER_EMAIL_KEY = "email"
+let USER_About_KEY = "about"
 let USER_STUDENT_NUMBER = "studentNumber"
 
 
