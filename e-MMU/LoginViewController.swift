@@ -43,8 +43,6 @@ class LoginViewController: UIViewController, FacultyChoosen, NSURLSessionDelegat
                     self.performSegueWithIdentifier("Faculty", sender: self)
                 } else {
                     
-                    self.getAndSetUserInfo(user)
-                    
                     self.performSegueWithIdentifier("Faculty", sender: self)
                 }
                 

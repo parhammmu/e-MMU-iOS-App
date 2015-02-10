@@ -71,6 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIButton.appearance().titleLabel?.textColor = UIColor.whiteColor()
         UIButton.appearance().titleLabel?.font = BUTTON_FONT
         UIButton.appearance().tintColor = UIColor.whiteColor()
+        UIButton.appearance().layer.cornerRadius = 20
+        UIButton.appearance().layer.masksToBounds = true
     }
 
 }

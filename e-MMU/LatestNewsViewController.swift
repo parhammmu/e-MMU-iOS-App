@@ -13,6 +13,7 @@ class LatestNewsViewController: UITableViewController {
     @IBOutlet var menuButton: UIBarButtonItem!
     var news: [RSSItem] = []
     var selectedUrl : NSURL?
+    var images = Dictionary<String, UIImage>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,11 +110,15 @@ class LatestNewsViewController: UITableViewController {
             
             if !item.categories.isEmpty {
                 let category = item.categories[0]
-                cell.imageView?.image = AppUtility.imageBasedOnCategory(category)
-            } else {
+                // Check to see if the cell is new or has been loaded before, as most likely titles are unique
+                if self.images[item.title!] == nil {
+                    self.images[item.title!] = AppUtility.imageBasedOnCategory(category)
+                    cell.imageView?.image = self.images[item.title!]
+                } else {
+                    cell.imageView?.image = self.images[item.title!]
+                }
                 
             }
-            
     
         }
 

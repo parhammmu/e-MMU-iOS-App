@@ -61,8 +61,6 @@ class ProfileTableViewController: UITableViewController, UIPageViewControllerDat
         
         svc.view.addSubview(indicator)
         
-        //let imageUrl = self.user.images[index].url as String
-        
         if let pictures = self.user[USER_PICTURES_KEY] as? [PFFile] {
             
             pictures[index].getDataInBackgroundWithBlock({ (data: NSData!, error: NSError!) -> Void in
@@ -144,6 +142,8 @@ class ProfileTableViewController: UITableViewController, UIPageViewControllerDat
         secondQuery.whereKey(CONVERSATION_IS_VALID_KEY, equalTo: true)
         
         let compoundQuery = PFQuery.orQueryWithSubqueries([firstQuery, secondQuery])
+        compoundQuery.includeKey(CONVERSATION_USER_ONE_KEY)
+        compoundQuery.includeKey(CONVERSATION_USER_TWO_KEY)
         compoundQuery.getFirstObjectInBackgroundWithBlock { (object: PFObject!, error: NSError!) -> Void in
             
             if error == nil {
@@ -295,13 +295,12 @@ class ProfileTableViewController: UITableViewController, UIPageViewControllerDat
     
     // MARK: - Segue Methods
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "sendMessageSegue" {
-            // Check to see if convesation object is not nil
-            if let object = self.conversationObject {
-                let mvc = segue.destinationViewController as? MessageViewController
-                mvc?.conversationObject = object
-            }
-            
+        if segue.identifier == "SendMessageSegue" {
+        
+            let mvc = segue.destinationViewController as? MessageViewController
+            mvc?.conversationObject = self.conversationObject
+            mvc?.recipientUser = self.user
+
         }
     }
 
