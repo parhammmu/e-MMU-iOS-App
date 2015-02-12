@@ -113,6 +113,8 @@ class LoginViewController: UIViewController, FacultyChoosen, NSURLSessionDelegat
                     
                     user.saveEventually()
                     
+                    self.createBlacklistForUser(user)
+                    
                     AppUtility.hideProgressViewFromView(self.view)
                     
                 }
@@ -121,6 +123,25 @@ class LoginViewController: UIViewController, FacultyChoosen, NSURLSessionDelegat
             }
 
         }
+    }
+    
+    func createBlacklistForUser(user: PFUser!) {
+        let object = PFObject(className: BLACKLIST_KEY)
+        let users = []
+        object[BLACK_LIST_USERS_KEY] = users
+        // Set ACL for blacklist object
+        let acl = PFACL()
+        acl.setReadAccess(true, forUser: user)
+        acl.setWriteAccess(true, forUser: user)
+        object.ACL = acl
+        
+        // Save blacklist object as well as updating the current user with newly created object
+        object.saveInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+            if error == nil && success == true {
+                user[USER_BLACKLIST_KEY] = object
+                user.saveEventually()
+            }
+        })
     }
     
 }

@@ -13,8 +13,8 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var students : [PFObject] = []
     var selectedStudent : PFObject? = nil
-    var filteredAgeFrom : Int? = 0
-    var filteredAgeTo : Int? = 100
+    var filteredAgeFrom : Int? = nil
+    var filteredAgeTo : Int? = nil
     var filteredSex : Sex? = nil
     var filteredFaculty : Faculty? = nil
     
@@ -27,6 +27,12 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
         AppUtility.showProgressViewForView(self.navigationController?.view, isDimmed: true)
         
         self.loadStudents(nil, toAge: nil, sex: nil, faculty: nil)
+        
+        // Check to see if we have the age of user otherwise show alert view
+        if PFUser.currentUser()[USER_AGE_KEY] == nil {
+            AppUtility.showAgeAlerView(self)
+        }
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -51,7 +57,34 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
         
         let query = PFUser.query()
         // exclude the current user
-        query.whereKey("objectId", notEqualTo: PFUser.currentUser().objectId)
+        query.whereKey(OBJECT_ID_KEY, notEqualTo: PFUser.currentUser().objectId)
+        
+        // Check to make sure the user is not in current user blacklist
+        let user = PFUser.currentUser()
+        let blacklist = user[USER_BLACKLIST_KEY] as? PFObject
+        // Check to see we need to fetch object or it's already fetched
+        if blacklist?.createdAt == nil {
+            blacklist?.fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                if error == nil {
+                    let users = object[BLACK_LIST_USERS_KEY] as? [String]
+                    if let blacklistUsers = users {
+                        query.whereKey(OBJECT_ID_KEY, notContainedIn: blacklistUsers)
+                        self.executeQuery(query, fromAge: fromAge, toAge: toAge, sex: sex, faculty: faculty)
+                    }
+                } else {
+                    println(error)
+                }
+            })
+        } else {
+            let users = blacklist![BLACK_LIST_USERS_KEY] as? [String]
+            if let blacklistUsers = users {
+                query.whereKey(OBJECT_ID_KEY, notContainedIn: blacklistUsers)
+                self.executeQuery(query, fromAge: fromAge, toAge: toAge, sex: sex, faculty: faculty)
+            }
+        }
+    }
+    
+    func executeQuery(query: PFQuery!, fromAge: Int?, toAge: Int?, sex: Sex?, faculty: Faculty?) {
         // Filter the query based on given arguments
         if let givenFromAge = fromAge? {
             query.whereKey(USER_AGE_KEY, greaterThanOrEqualTo: givenFromAge)
@@ -71,7 +104,7 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
             
             if error == nil {
                 
-                if let objects = result as? [PFObject] {
+                if let objects = result as [PFObject]! {
                     self.students = objects
                     self.tableView.reloadData()
                 }
@@ -83,7 +116,7 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
             AppUtility.hideProgressViewFromView(self.navigationController?.view)
             
         }
-        
+
     }
     
     func setCellFromStudent(cell: FindFriendTableViewCell!, student: PFObject!) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController, UIPageViewControllerDataSource {
+class ProfileTableViewController: UITableViewController, UIPageViewControllerDataSource, UIAlertViewDelegate {
 
     var user : PFUser!
     var pageController : UIPageViewController!
@@ -157,6 +157,46 @@ class ProfileTableViewController: UITableViewController, UIPageViewControllerDat
         }
     }
     
+    func reportUser() {
+        let blacklistObject = PFUser.currentUser()[USER_BLACKLIST_KEY] as? PFObject
+        // Check to see if there is already a blacklist object and create one if it does not
+        if let blacklist = blacklistObject {
+            blacklist.fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                
+                if error == nil {
+                    let usersInObject = object[BLACK_LIST_USERS_KEY] as? [String]
+                    if var users = usersInObject {
+                        users.append(self.user.objectId)
+                        object[BLACK_LIST_USERS_KEY] = users
+                        // Update blacklis object
+                        object.saveEventually()
+                        self.navigationController?.popToRootViewControllerAnimated(true)
+                    }
+                }
+                
+            })
+        } else {
+            let object = PFObject(className: BLACKLIST_KEY)
+            let users = [self.user.objectId]
+            object[BLACK_LIST_USERS_KEY] = users
+            // Set ACL for blacklist object
+            let acl = PFACL()
+            acl.setReadAccess(true, forUser: PFUser.currentUser())
+            acl.setWriteAccess(true, forUser: PFUser.currentUser())
+            object.ACL = acl
+            
+            // Save blacklist object as well as updating the current user with newly created object
+            object.saveInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+                if error == nil && success == true {
+                    PFUser.currentUser()[USER_BLACKLIST_KEY] = object
+                    PFUser.currentUser().saveEventually()
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
+            })
+            
+        }
+    }
+    
     // MARK: - PageViewController data source
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
@@ -288,8 +328,20 @@ class ProfileTableViewController: UITableViewController, UIPageViewControllerDat
         return self.cellForIndexPath(indexPath)
     }
     
+    // MARK: - Alert view delegate methods
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if alertView.title == "Are you sure you want to report this user?" {
+            if buttonIndex == 1 {
+                self.reportUser()
+            }
+        }
+    }
+    
     // MARK: - Action methods
     @IBAction func reportButtonTapped(sender: UIBarButtonItem) {
+        
+        let alert = UIAlertView(title: "Are you sure you want to report this user?", message: "If you report this user you no longer will be able to contact them", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Yes, please!")
+        alert.show()
         
     }
     

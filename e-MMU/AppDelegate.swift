@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFFacebookUtils.initializeFacebook()
         
         self.customSetup()
-        
-        
     
         return true
     }

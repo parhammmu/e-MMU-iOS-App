@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LatestNewsViewController: UITableViewController {
+class LatestNewsViewController: UITableViewController, UIAlertViewDelegate {
 
     @IBOutlet var menuButton: UIBarButtonItem!
     var news: [RSSItem] = []

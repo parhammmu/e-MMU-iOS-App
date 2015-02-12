@@ -226,18 +226,8 @@ class MessageViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-        let message = self.messages[indexPath.item]
-        if message.senderId == PFUser.currentUser().objectId {
-            return nil
-        }
-        if indexPath.item - 1 > 0 {
-            let previousMessage = self.messages[indexPath.item - 1]
-            if previousMessage.senderId == PFUser.currentUser().objectId {
-                return nil
-            }
-        }
         
-        return NSAttributedString(string: message.senderDisplayName)
+        return nil
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {

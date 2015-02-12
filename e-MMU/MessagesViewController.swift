@@ -12,7 +12,8 @@ class MessagesViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var messages : [PFObject] = []
-    var avators = Dictionary<String, String>()
+    var selectedMessage : PFObject!
+    var avators = Dictionary<String, UIImage>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,13 +92,83 @@ class MessagesViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let message = self.messages[indexPath.row]
+        self.selectedMessage = message
+        self.performSegueWithIdentifier("MessageSegue", sender: self)
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as MessageTableViewCell
 
-        // Configure the cell...
+        if !self.messages.isEmpty {
+            let message = self.messages[indexPath.row]
+            
+            let userOne = message[CONVERSATION_USER_ONE_KEY] as PFObject
+            
+            userOne.fetchInBackgroundWithBlock({ (objectOne: PFObject!, error: NSError!) -> Void in
+                if error == nil {
+                    let userTwo = message[CONVERSATION_USER_TWO_KEY] as PFObject
+                    userTwo.fetchInBackgroundWithBlock({ (objectTwo: PFObject!, error: NSError!) -> Void in
+                        if error == nil {
+                            // User one is current user so we need to get user two info
+                            if userOne.objectId == PFUser.currentUser().objectId {
+                                cell.nameLabel.text = objectTwo[USER_FIRST_NAME_KEY] as? String
+                                
+                                // Check if we have cached the image in avatars dictionary
+                                if self.avators[objectTwo.objectId] == nil {
+                                    let pictures = objectTwo[USER_PICTURES_KEY] as [PFFile]
+                                    if !pictures.isEmpty {
+                                        let picture = pictures[0]
+                                        picture.getDataInBackgroundWithBlock({ (data: NSData!, error: NSError!) -> Void in
+                                            if error == nil {
+                                                self.avators[objectTwo.objectId] = UIImage(data: data)
+                                                cell.profileImageView.image = self.avators[objectTwo.objectId]
+                                            }
+                                        })
+                                    }
 
+                                } else {
+                                    cell.profileImageView.image = self.avators[objectTwo.objectId]
+                                }
+                                
+                            } else {
+                                // User two is current user so we need to get user one info
+                                cell.nameLabel.text = objectOne[USER_FIRST_NAME_KEY] as? String
+                                
+                                // Check if we have cached the image in avatars dictionary
+                                if self.avators[objectOne.objectId] == nil {
+                                    let pictures = objectOne[USER_PICTURES_KEY] as [PFFile]
+                                    if !pictures.isEmpty {
+                                        let picture = pictures[0]
+                                        picture.getDataInBackgroundWithBlock({ (data: NSData!, error: NSError!) -> Void in
+                                            if error == nil {
+                                                self.avators[objectOne.objectId] = UIImage(data: data)
+                                                cell.profileImageView.image = self.avators[objectOne.objectId]
+                                            }
+                                        })
+                                    }
+                                } else {
+                                    cell.profileImageView.image = self.avators[objectOne.objectId]
+                                }
+                                
+                            }
+                        }
+                    })
+                }
+            })
+        }
+        
         return cell
     }
-
+    
+    // MARK: - Segue methods
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "MessageSegue" {
+            let mvc = segue.destinationViewController as MessageViewController
+            mvc.conversationObject = self.selectedMessage
+        }
+    }
+    
 }

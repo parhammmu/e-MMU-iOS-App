@@ -948,6 +948,7 @@
                     <connections>
                         <outlet property="menuButton" destination="pmO-Dz-m09" id="EGF-xp-yvt"/>
                         <segue destination="ehP-fV-xNV" kind="presentation" identifier="Login" id="iNZ-2h-WuZ"/>
+                        <segue destination="E2K-iy-VrN" kind="show" identifier="MessageSegue" id="ceX-e1-fqv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5G5-QY-Nns" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1201,7 +1202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b46-m0-bFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5950" y="1279"/>
+            <point key="canvasLocation" x="5224" y="-2376"/>
         </scene>
         <!--Slider View Controller-->
         <scene sceneID="lJN-JM-UqW">
@@ -1253,8 +1254,9 @@
         <image name="women-icon" width="25" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iNZ-2h-WuZ"/>
         <segue reference="xiX-19-dJi"/>
         <segue reference="Zet-HI-VfA"/>
-        <segue reference="SB4-9w-HMi"/>
+        <segue reference="ceX-e1-fqv"/>
     </inferredMetricsTieBreakers>
 </document>

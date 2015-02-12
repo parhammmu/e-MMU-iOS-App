@@ -20,7 +20,44 @@ class AppUtility: NSObject {
         let lvc = LoginViewController()
         if user == nil {
             vc.performSegueWithIdentifier("Login", sender: vc)
+        } else {
+            if PFUser.currentUser()["blacklist"] == nil {
+                PFUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+
+                })
+                
+            }
         }
+        
+    }
+    
+    class func showAgeAlerView(viewController: UIViewController) {
+        let alert = UIAlertController(title: "How old are you?", message: "Sorry! Somehow we couldn't manage to retreive your age from Facebook for optimising your experience on e-MMU. \n Please enter your age!", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addTextFieldWithConfigurationHandler({ (textField : UITextField!) -> Void in
+            textField.placeholder = "Your age"
+            textField.keyboardType = UIKeyboardType.NumberPad
+        })
+        
+        let okAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action : UIAlertAction!) -> Void in
+            let studentAgeTextField = alert.textFields?.first as? UITextField
+            if studentAgeTextField?.text != "" {
+                let currentUser = PFUser.currentUser()
+                
+                currentUser[USER_AGE_KEY] = studentAgeTextField?.text.toInt()
+                currentUser.saveEventually()
+            }
+        })
+        
+        let cancelAction = UIAlertAction(title: "Maybe later!", style: UIAlertActionStyle.Cancel, handler: { (alertAction : UIAlertAction!) -> Void in
+            viewController.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        viewController.presentViewController(alert, animated: true, completion: nil)
+
     }
     
     class func showProgressViewForView(aView: UIView!, isDimmed : Bool) {
