@@ -1066,14 +1066,45 @@
         <scene sceneID="Jaf-Ie-Y7b">
             <objects>
                 <tableViewController id="6as-hq-QVy" customClass="MyAccountViewController" customModule="e_MMU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2Wo-aJ-1GZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2Wo-aJ-1GZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="thZ-eQ-vbZ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextViewCell" rowHeight="70" id="thZ-eQ-vbZ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="thZ-eQ-vbZ" id="kWE-TN-M82">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0N-vy-xNJ">
+                                            <rect key="frame" x="19" y="21" width="562" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="I0N-vy-xNJ" secondAttribute="bottom" constant="18" id="Bft-CX-GHF"/>
+                                        <constraint firstItem="I0N-vy-xNJ" firstAttribute="top" secondItem="kWE-TN-M82" secondAttribute="top" constant="21" id="HRL-9E-YkC"/>
+                                        <constraint firstItem="I0N-vy-xNJ" firstAttribute="leading" secondItem="kWE-TN-M82" secondAttribute="leading" constant="19" id="Tm8-vj-rJE"/>
+                                        <constraint firstAttribute="trailing" secondItem="I0N-vy-xNJ" secondAttribute="trailing" constant="19" id="wl9-5r-t7k"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FacultyCell" rowHeight="70" id="Ui3-HE-WLm">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ui3-HE-WLm" id="8jb-pU-7D6">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PushCell" rowHeight="70" id="SYv-Xl-NFH">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SYv-Xl-NFH" id="eda-UQ-BlI">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="200" id="lrP-Y9-CJH">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lrP-Y9-CJH" id="AW6-aG-cZ6">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1093,7 +1124,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ct-fv-QcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2448" y="-3051"/>
+            <point key="canvasLocation" x="2448" y="-3052"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Oig-zb-NB5">
@@ -1254,9 +1285,9 @@
         <image name="women-icon" width="25" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iNZ-2h-WuZ"/>
         <segue reference="xiX-19-dJi"/>
         <segue reference="Zet-HI-VfA"/>
         <segue reference="ceX-e1-fqv"/>
+        <segue reference="sHn-mf-Exe"/>
     </inferredMetricsTieBreakers>
 </document>

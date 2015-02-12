@@ -149,6 +149,20 @@ class MessageViewController: JSQMessagesViewController {
                 JSQSystemSoundPlayer.jsq_playMessageSentAlert()
                 self.loadMessages()
                 
+                // Sending push with quering PFInstallation
+                let query = PFInstallation.query()
+                query.whereKey("user", equalTo: self.recipientUser)
+                let push = PFPush()
+                push.setQuery(query)
+                push.setMessage(text)
+                // Set extra data
+                let data = ["conId": conversationObject.objectId]
+                push.setData(data)
+                push.sendPushInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+                    
+                })
+                
+                
             } else {
                 println(error)
             }

@@ -27,18 +27,24 @@ class FindFriendsViewController: UITableViewController, FilterDelegate {
         AppUtility.showProgressViewForView(self.navigationController?.view, isDimmed: true)
         
         self.loadStudents(nil, toAge: nil, sex: nil, faculty: nil)
-        
-        // Check to see if we have the age of user otherwise show alert view
-        if PFUser.currentUser()[USER_AGE_KEY] == nil {
-            AppUtility.showAgeAlerView(self)
-        }
-
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         // Check user state (user is logged in or not)
         AppUtility.checkUser(self)
+        
+        let installation = PFInstallation.currentInstallation()
+        // if user has accepted the push notification
+        if installation["appName"] as? String == "e-MMU" {
+            installation["user"] = PFUser.currentUser()
+            installation.saveEventually()
+        }
+        
+        // Check to see if we have the age of user otherwise show alert view
+        if PFUser.currentUser()[USER_AGE_KEY] == nil {
+            AppUtility.showAgeAlerView(self)
+        }
         
         // Add pull to refresh
         self.tableView.addPullToRefreshWithActionHandler { () -> Void in
