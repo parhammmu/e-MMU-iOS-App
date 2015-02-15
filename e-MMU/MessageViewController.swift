@@ -154,9 +154,8 @@ class MessageViewController: JSQMessagesViewController {
                 query.whereKey("user", equalTo: self.recipientUser)
                 let push = PFPush()
                 push.setQuery(query)
-                push.setMessage(text)
                 // Set extra data
-                let data = ["conId": conversationObject.objectId]
+                let data = ["conId": conversationObject.objectId, "alert": text]
                 push.setData(data)
                 push.sendPushInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
                     

@@ -133,16 +133,16 @@ class MenuViewController: UITableViewController {
             
             if PFUser.currentUser() != nil {
                 
-                let firstName = self.currentUser["firstName"] as? String
-                let lastName = self.currentUser["lastName"] as? String
+                let firstName = self.currentUser[USER_FIRST_NAME_KEY] as? String
+                let lastName = self.currentUser[USER_LAST_NAME_KEY] as? String
                 
-                if let firstName = self.currentUser["firstName"] as? String {
-                    if let lastName = self.currentUser["lastName"] as? String {
+                if let firstName = self.currentUser[USER_FIRST_NAME_KEY] as? String {
+                    if let lastName = self.currentUser[USER_LAST_NAME_KEY] as? String {
                         name?.text = firstName + " " + lastName
                     }
                 }
                 
-                let images = self.currentUser["pictures"] as? [PFFile]
+                let images = self.currentUser[USER_PICTURES_KEY] as? [PFFile]
                 
                 if images?.count > 0 {
                     let profileView = self.tableView.viewWithTag(2) as? ProfileImageView

@@ -66,11 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        //PFPush.handlePush(userInfo)
-    }
-    
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        
+        PFPush.handlePush(userInfo)
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -96,6 +92,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIButton.appearance().tintColor = UIColor.whiteColor()
         UIButton.appearance().layer.cornerRadius = 20
         UIButton.appearance().layer.masksToBounds = true
+        UITextField.appearance().borderStyle = .None
+        UITextField.appearance().font = BODY_FONT
+        UISwitch.appearance().tintColor = NAVIGATION_COLOUR
+        UISwitch.appearance().onTintColor = NAVIGATION_COLOUR
     }
 
 }

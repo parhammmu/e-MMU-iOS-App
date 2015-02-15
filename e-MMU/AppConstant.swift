@@ -65,6 +65,8 @@ let USER_EMAIL_KEY = "email"
 let USER_About_KEY = "about"
 let USER_STUDENT_NUMBER = "studentNumber"
 
+let RECEIVE_PUSH_KEY = "receivePush"
+
 
 // Enums
 enum Faculty : String {
