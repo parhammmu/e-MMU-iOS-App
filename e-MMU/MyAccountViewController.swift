@@ -146,7 +146,7 @@ class MyAccountViewController: UITableViewController, UITextFieldDelegate, Facul
         }
     }
     
-    // MARK: - Imae picker controller delegate
+    // MARK: - Image picker controller delegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.imagePicker.dismissViewControllerAnimated(true, completion: nil)
     }
